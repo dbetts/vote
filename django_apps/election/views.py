@@ -98,12 +98,6 @@ def pin(request):
     else:
         form = PINForm(request)
 
-        # if not hasattr(form, 'pin'):
-        #     form = Object()
-        #     form.pin = Object()
-        #     form.pin.name = 'pin'
-        #     form.pin.value = ''
-
     try:
         election = Election.objects.select_related().get(pk=request.session.get('election_id'))
         asset = Asset.objects.get(election=election)
@@ -121,8 +115,8 @@ def pin(request):
                     {
                         'form': form,
                         'page_banner': page_banner_source,
-                        'domain': request.session.get('subdomain', 'default'),
-                        'theElectionId': request.session.get('election_id', 'no idea'),
+                        # 'domain': request.session.get('subdomain', 'default'),
+                        # 'theElectionId': request.session.get('election_id', 'no idea'),
                     },
                     context_instance=RequestContext(request))
 
