@@ -1,0 +1,15 @@
+{% extends "admin/change_form.html" %}
+
+{% block content %}
+
+{{ block.super }}
+
+{% if not add %}
+	<div>
+		<p>&nbsp;</p>
+		<h2><a href="{% url election_pin_status object_id %}">Download PIN Status CSV</a></h2>
+		<h2><a href="{% url election_results object_id %}">Election results</a></h2>
+		<h2><a href="{% url election_vote_status object_id %}">Ballot download</a></h2>
+	</div>
+{% endif %}
+{% endblock %}

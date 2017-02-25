@@ -1,0 +1,11 @@
+{% extends "base_site.html" %}
+
+{% block title %}Election inactive{% endblock %}
+
+{% block content %}
+	<h2>{{ election.name }} is not active</h2>
+
+	<p>Votes for {{ election.name }} are being accepted from 
+	    <strong>{{ election.start_time|date:"l M jS" }} at {{ election.start_time|date:"P T" }}</strong>
+	    through <strong>{{ election.end_time|date:"l M jS" }} at {{ election.end_time|date:"P T" }}</strong>.
+{% endblock %}

@@ -1,0 +1,9 @@
+{{ question }}.
+
+There are {{ question.choices.count }} choices for this question. You must listen to all choices before making your selection. Your choices are:
+
+{% for choice in question.choices.all %}
+    {{ choice.answer }}.
+{% endfor %}
+
+{% ifequal question.min_responses 0 %}No response is required for this question, to skip press 99 followed by the pound key{% endifequal %}

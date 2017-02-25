@@ -1,0 +1,1 @@
+We're sorry but the {{ election }} election is not currently accepting votes. Voting is between {{ election.start_time|date}} and {{ election.end_time|date }}.

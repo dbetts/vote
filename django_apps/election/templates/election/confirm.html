@@ -1,0 +1,48 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+{% load election_tags %}
+
+{% block title %}{% trans "Confirmation" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Confirmation" %}</h2>
+<p>If you wish to verify your vote in the future your confirmation number is:
+    <b>{{ vote.confirmation }}</b></p>
+<p><b>You must record this number now!</b> To protect your identity, we will not have a way to look this
+    information up in the future.</p>
+<hr/>
+<span style="font-size: 16px">
+	<h3>Ballot was recorded as:</h3>
+
+	{% for question in questions %}
+	    <h3>{{ question }}</h3>
+
+	    <ul>
+	    {% for answer in ballot|hash:question.id|hash:"answer_eng" %}
+	        <li>{{ answer }}</li>
+	    {% empty %}
+	        <li><em>No answer provided</em></li>
+	    {% endfor %}
+	    </ul>
+	{% endfor %}
+    <hr/>
+	<p>If you wish to verify your vote in the future your confirmation number is:
+		<b>{{ vote.confirmation }}</b></p>
+	<p><b>You must record this number now!</b> To protect your identity, we will not have a way to look this
+		information up in the future.</p>
+
+	<p>Do not share your confirmation number.</p>
+    </span>
+<!---->
+<form action="{{ exit_url }}">
+    <input style="font-size:18px;" type="submit" id="mysubmit" value="Finish">
+</form>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<br>
+<span style="font-size: 12px;">(When you click &quot;No Thanks&quot; you will get a popup message that you are leaving our secure site; this is normal and correct.)</span>
+{% endblock %}

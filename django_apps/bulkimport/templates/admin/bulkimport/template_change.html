@@ -1,0 +1,12 @@
+{% extends "admin/change_form.html" %}
+
+{% block after_related_objects %}
+    
+    <input type="hidden" name="name" value="{{ original.name }}" />
+    
+    {% include "admin/bulkimport/_mapping.html" %}
+    
+    {% if mapping %}
+    <h2><a href="{% url bulkimport_new_from_template original.id %}">Create new job with this template</a></h2>
+    {% endif %}
+{% endblock %}

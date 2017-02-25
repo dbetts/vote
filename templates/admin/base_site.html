@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+{% load election_tags %}
+
+{% block title %}{{ title }} | Merriman River{% endblock %}
+
+{% block branding %}
+{% admin_reorder %}
+    <h1 id="site-name">Merriman River</h1>
+{% endblock %}

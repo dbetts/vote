@@ -1,0 +1,10 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Ballot not found" %}{% endblock %}
+
+{% block content %}
+	<h2>Ballot not found</h2>
+	
+	<p>Ballot confirmations can only be looked up through your <a href="{% url election_verify %}">secure confirmation number</a>.</p>
+{% endblock %}

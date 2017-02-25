@@ -1,0 +1,36 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Enter PIN" %}{% endblock %}
+
+{% block content %}
+	
+    {% include "election/pin_text.html" %}
+<form name="PIN" action="" method="post" class="clean_form">
+	<div class="clear margin-t-10px" >
+		<div class="login-pin text-color3 ">
+		<div>{{ form.errors.pin|safe }}</div>
+			<div class="pull-left input-info-icon text-left">
+				<div class="text-uppercase bold text-left">Log In</div>
+					 <div class="lock"></div>
+					      			</div>
+					      			<div class="pull-left input-information text-left">
+					      					<div class="bold">Enter Your PIN number:</div>
+									          <input type="text" maxlength="20"  id="id_pin"  name="{{ form.pin.name }}" value="{{ form.pin.value }}"  autofocus="">
+									          <!--{{ form.pin }}-->
+									          <input type="submit" value="{% trans "Continue" %}" class="btn1 bold ">
+					      			</div>
+			</div>
+		</div>
+	<div><br/></div>
+</form>
+
+	<!--<p><form action="" method="post" class="clean_form">
+	    {{ form.errors.pin|safe }}
+		{{ form.pin }} <input type="submit" value="{% trans "Create ballot" %}">
+		<p></p>
+	</form></p>
+	<br /><br /><br /> -->
+	<!--<iframe width="640" height="360" src="//www.youtube.com/embed/1famc7rbhoU?autoplay=1" frameborder="0" allowfullscreen></iframe><br />-->
+	
+{% endblock %}

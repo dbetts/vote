@@ -1,0 +1,416 @@
+html, body {
+	margin: 0px;
+	padding:0px;
+	background-image:url(/media/images/bg.gif);
+	font-size: 16px;
+}
+#holder{width:800px;
+	margin:0px auto;
+	background-color:#FFF;
+	background-image:url(/media/images/bg_header_top.gif);
+	background-repeat:repeat-x;
+	background-position:top;}
+#header{
+width:780px;
+height:70px;
+
+}
+#logo{
+width:348px;
+height:70px;
+float:left;
+
+}
+a img{
+border: none;
+
+}
+#link{
+width:432px;
+height:35px;
+float:right;
+padding-top:35px;
+
+}
+#links1{
+	width:79px;
+	height:32px;
+	border-left:1px solid #FFF;
+	padding-top:3px;
+	text-decoration:none;
+	float:right;
+	background-color: #0c2649;
+	color: #FFFFFF;
+	font-family:"Georgia";
+	
+}
+#links2{
+width:55px;
+height:32px;
+border-left:1px solid #FFF;
+padding-top:3px;
+text-decoration:none;
+float:right;
+background-color: #0c2649;
+color: #FFFFFF;
+font-family:"Georgia";
+}
+
+#links3{
+width:40px;
+height:28px;
+
+padding-top:7px;
+text-decoration:none;
+float:right;
+background-color:#0c2649;
+color: #FFFFFF;
+font-family:"Georgia";
+}
+
+#links4{
+	width:102px;
+	height:32px;
+	border-left:1px solid #FFF;
+	padding-top:3px;
+	text-decoration:none;
+	float:right;
+	background-color: #0c2649;
+	color: #FFFFFF;
+	font-family:"Georgia";
+	
+}
+
+#links5{
+	width:72px;
+	height:32px;
+	border-left:1px solid #FFF;
+	padding-top:3px;
+	text-decoration:none;
+	float:right;
+	background-color: #0c2649;
+	color: #FFFFFF;
+	font-family:"Georgia";
+	
+}
+.menu{
+	color:#FFFFFF;
+	background-color: #0c2649;
+	text-decoration:none;
+}
+
+
+#flash{
+clear:both;
+border: solid 1px #0c2649; width: 778px; height: 132px;}
+
+#content{
+clear:both;
+padding:25px 0px;
+height:auto;
+background-color:#FFFFFF;
+}
+#content1{
+font-family:"Georgia";
+height:310px;
+background-color:#FFFFFF;
+padding-top:40px;}
+#leftbar{
+float:left;
+width:545px;
+border-right:1px solid #BCBDBC;
+height:auto;
+background-color:#FFFFFF;
+
+}
+.text{font-family:"Georgia";
+color:#000000;
+font-weight:normal;
+text-decoration:none;
+padding-left:45px;
+padding-bottom:5px;
+padding-right:15px;
+
+}
+.leftbarh2{font-family:"Georgia";
+	font-size:26px;
+	color:#1406a1;
+	font-weight:normal;
+	text-decoration:none;
+}
+.more{
+font-family:"Georgia";
+	font-size:11px;
+	color:#1406a1;
+	font-weight:bold;
+	text-decoration:none;
+	}
+#leftbar a:hover{
+font-family:"Georgia";
+	font-size:11px;
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+	}
+#rightbar{
+width:250px;
+height:auto;
+background-color:#FFFFFF;
+float:right;
+padding-bottom:20px;
+}
+
+#smallbar1{
+width:190px;
+	background-color:#dc1f35;
+	height:2px;
+}
+
+#smallbar{
+width:190px;
+	background-color:#ceb80b;
+	height:4px;
+}
+
+.text2{
+width:190px;
+height:auto;
+font-family:"Georgia";
+	font-size:11px;
+	color:#AEB1AF;
+	font-weight:normal;
+	text-decoration:none;
+background-color: #0c2649;
+padding-bottom:20px;
+text-align: center;}
+
+.text3{
+width:190px;
+height:2px;
+background-color: #dc1f35;
+}
+
+.text4{
+width:190px;
+height:4px;
+background-color: #ceb80b;
+text-align: center;}
+
+.text2 a:hover{
+text-decoration:underline;}
+.linkcl{
+color:#797B7A;
+text-decoration:none;}
+.rightbarh2{
+font-family:"Georgia";
+	font-size:26px;
+	color:#797B7A;}
+.orangetext {
+	font-family:"Georgia";
+	font-size:11px;
+	color:#ceb80b;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+.orangetext a{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#ceb80b;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+.orangetext a:hover{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#dc1f35;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+#footer{
+clear:both;
+	height:45px;
+	padding-top:25px;
+	margin-left:11px;}
+	#email {
+	float:left;
+	width:500px;
+	background-color:#0c2649;
+	height:27px;
+	padding-top:5px;
+}#bar {
+	float:left;
+	width:778px;
+	background-color:#ceb80b;
+	height:4px;;
+}#bar2 {
+	float:left;
+	width:778px;
+	background-color:#dc1f35;
+	height:2px;
+}
+#right-bar {
+	overflow:hidden;
+	width:190px;
+	background-color:#dc1f35;
+	height:2px;
+}
+
+#right-bar2 {
+	overflow:hidden;
+	width:190px;
+	background-color:#ceb80b;
+	height:4px;;
+}
+
+#left-bar {
+	overflow:hidden;
+	width:200px;
+	position: absolute;
+	height:2px;
+	background-color:#dc1f35;
+	top: 0;
+	left: 0;
+}
+
+#left-bar2 {
+	overflow:hidden;
+	width:200px;
+	position: absolute;
+	height:4px;
+	background-color:#ceb80b;
+	top: 2px;
+	left: 0;
+}
+#email a{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#fff;
+	font-weight:normal;
+	text-decoration:underline;
+	padding:0px 40px;
+}
+
+#email a:hover{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#fff;
+	font-weight:normal;
+	text-decoration:none;
+	padding:0px 40px;
+	
+}
+
+#validtext {
+	float:left;
+	width:278px;
+	background-color:#0c2649;
+	height:27px;
+	padding-top:5px;
+}
+.rm{
+margin-right:30px;
+	font-family:"Georgia";
+	font-size:11px;
+	color:#fff;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+#validtext a{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#fff;
+	font-weight:normal;
+	text-decoration:underline;
+}
+
+#validtext a:hover{
+	font-family:"Georgia";
+	font-size:11px;
+	color:#fff;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+#left{
+width:510px;
+height:145px;
+padding-left:35px;
+}
+#placeholder{
+width:200px;
+height:130px;
+float:left;
+background-color:#0c2649;
+border:none;}
+
+#contactbutton{
+font-family:"Georgia";
+width:130px;
+height:20px;
+float: none;
+background-color:#dc1f35;
+margin-top: +50px;
+border-width:2px;
+border-color:#dc1f35;
+}
+#contactbutton a{
+	font-family:"Georgia";
+	font-size:16px;
+	color:#000000;
+	font-weight:normal;
+	text-decoration:none;
+}
+#contactbutton a:hover{
+	font-family:"Georgia";
+	font-size:16px;
+	color:#ffffff;
+	font-weight:normal;
+	text-decoration:none;
+}
+#txt{
+font-family:"Georgia";
+width:285px;
+height:130px;
+float:right;
+background-color:#ffffff;
+font-size:11px;
+padding-left:15px;
+padding-right:0px;
+}
+div#rightbar p { margin-left: 10px; margin-right:10px;}
+
+
+.clean_form input  {
+	font-size: 14px;	
+}
+
+.clean_form label {
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+}
+
+.clean_form li {
+	list-style: none;
+}
+
+ul.errorlist { margin:0 !important; padding:0 !important; }
+
+.errorlist li { 
+    font-size:12px !important;
+    font-weight: bold;
+    display:block; 
+    padding:4px 5px 4px 5px; 
+    margin:0 0 3px 0; 
+    border:1px solid red; 
+    color:white; 
+    background:red  5px .3em no-repeat; 
+}
+
+.bigger {
+   font-size: 14px;
+}

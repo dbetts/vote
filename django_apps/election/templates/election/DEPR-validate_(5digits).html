@@ -1,0 +1,50 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+
+{% block title %}Validate your identity{% endblock %}
+
+{% block content %}
+
+<h2>{{ election.name }}</h2>
+
+<p>There's one more step before we create your secret ballot, we 
+    need to validate your identity:</p>
+
+<form method="POST" action=".">
+     <div class=" text-color1 padding-b-100px"> 
+              
+              <!--<div class="text-color3 bold text-color4">
+                {% ifequal validation_method "phone" %}
+                    Last four digits of phone number starting with
+                {% else %}
+                    Enter the last four digits of your membership number exclude the suffix <br><font size="-1">(For example, if your members number was <b>123-4567-0023</b> you would enter 4567)</font><br><br>Your actual member number starts with
+                {% endifequal %}{{ validate_against }} 
+                </div>-->
+             <div class="margin-t-10px"> 
+
+                  <div class="login-pin text-color3 clear ">
+                     {{ form.value.errors }} 
+                    <div class="pull-left input-info-icon text-left">
+                      <div class="text-uppercase bold ">Verify</div>
+                      <div class="verify"></div>
+                    </div>
+                    <div class="pull-left input-information text-left">
+                      <div class="bold">Please enter your 5 digit zip code from your reply ballot.</div>
+                    <input type="text"   id="id_value"  name="{{ form.value.name }}" value="{{ form.value.value }}"  autofocus="">
+                    <input type="submit" value="Validate my identity" class="btn1 bold">
+                    </div>
+                      
+                  </div>
+               </div>
+             
+        </div>
+</form>
+   <table width="100%" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+      <td bgcolor="#FFFFCC"><blockquote>
+        <h3>Wrong Zip Code on file?</h3>
+        <p>The Zip Code on file is the five-digit zip code from your election notification.  If you are unsure what to enter, please call 877-324-7655 and leave a message. Your call will be returned promptly. We will guide you through the verification and login process and help you update your information.</p>
+      </blockquote> </td>
+    </tr>
+  </table>
+{% endblock %}

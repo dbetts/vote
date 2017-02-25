@@ -1,0 +1,31 @@
+{% extends "secondary_site.html" %}
+
+{% block title %}Validate your identity{% endblock %}
+
+{% block content %}
+
+<h2>{{ election.name }}</h2>
+
+<p>Before we create your secret ballot, we need to verify your identity:</p>
+
+<form method="POST" action=".">
+    {{ form.value.errors }}
+    <label>
+        {{ validation_text }} {{ validate_against }}
+    </label>
+    {{ form.value }}<br>
+    <input type="submit" value="Validate my identity"/>
+</form>
+<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+        <td bgcolor="#FFFFCC">
+            <blockquote>
+                <h3>Don't recognize your number on file?</h3>
+                <p>If you don't recognize your number, please call {{ default_phone }} and leave a message. Your call
+                    will be returned promptly.</p>
+            </blockquote>
+        </td>
+    </tr>
+</table>
+{% endblock %}

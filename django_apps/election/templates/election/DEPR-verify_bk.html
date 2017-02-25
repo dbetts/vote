@@ -1,0 +1,16 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+
+{% block title %}Verify your vote{% endblock %}
+
+{% block content %}
+	<h2>Verify your vote</h2>
+	
+	<p>Please enter the confirmation code you received after voting. For voter privacy, we have no record of what your code is and it can not be looked up if you lost it.</p>		
+	
+	<form action="" method="post" class="clean_form">
+        {{ form }}
+		<p><input type="submit" value="{% trans "Lookup Vote" %}"></p>
+	</form>
+	
+{% endblock %}

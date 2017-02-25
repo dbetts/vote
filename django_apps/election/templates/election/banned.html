@@ -1,0 +1,9 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Enter PIN" %}{% endblock %}
+
+{% block content %}
+	<p>You seem to be having trouble, please call {{ default_phone }} or email
+	    <a href="mailto:{% default_email %}">{{ default_email }}</a> for assistance.</p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block content %}
+<p>{% trans "Please choose a language" %}:</p>
+
+{% for lang in LANGUAGES %}
+	<div style="width: 100px; float: left;">
+	<form action="{% url django.views.i18n.set_language %}" method="post" name="language_{{ forloop.counter }}">
+		<input name="next" type="hidden" value="{% url election_pin %}" />
+		<input name="language" type="hidden" value="{{ lang.0 }}" />
+		<label>
+			<a href='#' onClick='document.language_{{ forloop.counter }}.submit()'>
+				<img src="http://www.merrimanriver.com/vote/media/{{ lang.0 }}.jpg" border=0 alt="{{ lang.1 }}">
+			</a>
+		</label>
+	</form>
+	</div>
+{% endfor %}
+{% endblock %}

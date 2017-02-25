@@ -1,0 +1,1 @@
+ALTER TABLE election_log ENGINE = INNODB;

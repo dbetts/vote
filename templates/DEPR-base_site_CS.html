@@ -1,0 +1,97 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>{% block title %}Home{% endblock %} | Merriman River Group</title>
+<!--<link href="http://www.merrimanriver.com/new.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.merrimanriver.com/favicon.ico">
+<link rel="icon" href="http://www.merrimanriver.com/favicon.ico">-->
+
+      <style type="text/css">
+         <!--
+       			.clean_form input  {
+				font-size: 14px;	
+			}
+			
+			.clean_form label {
+				font-size: 14px;
+				font-weight: bold;
+				display: block;
+			}
+			
+			.clean_form li {
+				list-style: none;
+			}
+
+         ul.errorlist { margin:0 !important; padding:0 !important; }
+         
+         .errorlist li { 
+             font-size:12px !important;
+             font-weight: bold;
+             display:block; 
+             padding:4px 5px 4px 5px; 
+             margin:0 0 3px 0; 
+             border:1px solid red; 
+             color:white; 
+             background:red  5px .3em no-repeat; 
+        }
+        
+        .bigger {
+            font-size: 14px;
+        }
+        
+        #demoButton {
+		text-align: right;
+		}
+						
+			-->
+
+      </style>
+</head>
+
+<body>
+<div align="center">
+<div id="holder"><span class="style2"><br>
+</span>
+</span>
+  <div id="header">
+ 
+  <div id="link">
+  
+  </div>
+  
+</div>
+
+<table valign="top" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+   		<td bgcolor="#ffffff" width="331"><img src="http://www.ourcobblestone.com/images/logo.gif" border="0"></td>
+			<td background="http://www.ourcobblestone.com/images/activitiestop.jpg" width="70%"><img src="images/clear.gif" height="77" width="438">
+			</td>
+	</tr>
+</table>
+
+
+<div id="content">
+	<div class="text" align="left">{% block content %}{% endblock %}</div>
+</div>
+
+<div id="footer"> 
+     <div id="bar2">
+     </div>
+     <div id="bar">
+     </div>
+  	<div id="email">
+    		<div align="left"><a href="http://www.ourcobblestone.com/Index.lasso">Home</a></div>
+  	</div>
+  
+  <div id="validtext">
+    <div align="right" class="rm">877-324-7655</div>
+  </div>
+</div>
+
+    
+
+ 
+</div>
+</div>
+</body>
+</html>

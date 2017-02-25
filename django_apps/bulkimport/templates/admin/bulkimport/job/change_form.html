@@ -1,0 +1,151 @@
+{% extends "admin/change_form.html" %}
+{% load bulkimport %}
+{% load i18n admin_modify adminmedia %}
+
+{% block extrahead %}
+    {{ block.super }}
+    
+    {% include "admin/bulkimport/_jquery_include.html" %}
+
+    {% ifequal original.status "progress" %}
+        <meta http-equiv="refresh" content="3" />
+    {% endifequal %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% if not is_popup %}
+    <div class="breadcrumbs">
+         <a href="../../../">{% trans "Home" %}</a> &rsaquo;
+         <a href="../../">{{ app_label|capfirst|escape }}</a> &rsaquo; 
+         <a href="../">{{ opts.verbose_name_plural|capfirst }}</a> &rsaquo; 
+         {% if add %}{% trans "Add" %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if original %}
+    <style>
+
+    ._fields {
+        vertical-align: middle;
+    }
+
+    ._bold, ._bold select {
+        font-weight: bold;
+    }
+
+    .status_new {
+        color: blue;
+    }
+
+    .status_progress {
+        color: yellow;
+    }
+
+    .status_failed {
+        color: red;
+    }
+
+    .status_complete {
+        color: green;
+    }
+    .status_failed {
+        color: red;
+    }
+
+    </style>
+
+
+    <h3>Import type: {{ original.content_type }}</h3>
+    <h3>Status: <span class="status_{{ original.status }}">{{ original.get_status_display }}</span></h3>
+    
+    <form method="post" action="">
+        
+    {% ifequal original.status "new" %}
+        {% include "admin/bulkimport/_mapping.html" %}
+    {% endifequal %}
+
+    {% ifequal original.status "failed" %}
+        <span><em>It looks like you may have tried to upload the wrong file, we weren't able to line up any of the rows.</em></span>
+            {% include "admin/bulkimport/_mapping.html" %}
+    {% else %}
+        {% ifnotequal original.status "new" %}
+            <p>Job added {{ count }} {{ original.content_type }} objects and encountered {{ original.error_set.count }} invalid rows.</p>
+        {% endifnotequal %}
+    {% endifequal %}        
+
+    {% if original.error_set.all %}
+        <h3>Errors</h3>
+        <div id="pager" class="pager">
+            <form action="">
+        		<img src="{{ MEDIA_URL }}images/bulkimport/prev.png" class="prev" style="vertical-align: middle;"/>
+        		<img src="{{ MEDIA_URL }}images/bulkimport/next.png" class="next" style="vertical-align: middle;"/>
+        		<select class="pagesize">
+        			<option selected="selected" value="10">10 per page</option>
+        			<option value="20">20 per page</option>
+        			<option value="30">30 per page</option>
+        			<option  value="40">40 per page</option>
+        		</select>
+        	</form>
+        </div>
+
+       <table cellspacing="0" id="error_browser" width="100%">
+            <thead>
+                <tr><td><strong>Reason</strong></td></tr>
+            </thead>
+            <tbody>
+            {% for e in original.error_set.all %}
+                <tr>
+                    <td class="{% cycle "row1" "row2" %}">{{ e.message }} {% bulkimport_missing_fields original e.data %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    
+    <div class="submit-row" {% if is_popup %}style="overflow: auto;"{% endif %}>
+        <p class="deletelink-box"><a href="delete/" class="deletelink">{% trans "Delete" %}</a></p>
+        {% ifequal original.status "failed" %}
+            <input type="submit" class="default" value="Retry" />
+        {% endifequal %}
+        
+        {% ifequal original.status "new" %}
+            <input type="submit" value="Save" class="default" name="_save" />
+        {% endifequal %}
+        
+    </div>
+
+    {#% ifequal original.status "failed" %#}
+        </form>
+    {#% endifequal %#}
+    
+{% else %}
+    <div id="content-main">
+    {% if templates %}
+        <p>Base on template: 
+            <select id="template_chooser">
+                <option>&nbsp;</option>
+                {% for t in templates %}<option value="{% url bulkimport_new_from_template t.id %}">{{ t }}</option>{% endfor %}
+            </select>
+        </p>
+    {% endif %}
+    
+    <form enctype="multipart/form-data" action="" method="post" >
+        <div>
+
+        <fieldset class="module aligned">
+            {% for field in form %}
+            <div class="form-row {{ field.label }}">
+                {{ field.errors }}
+                {{ field.label_tag }}{{ field }}
+                {% if field.help_text %}<p class="help">{{ field.help_text|safe }}</p>{% endif %}
+            </div>
+            {% endfor %}
+        </fieldset>
+        </div>
+        {% submit_row %}
+    </form>
+{% endif %}
+</div>
+{% endblock %}

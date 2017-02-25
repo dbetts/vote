@@ -1,0 +1,1 @@
+There are {{ ballot.questions.count }} questions on your ballot. For each question you will hear a list of choices before being able to vote. Your ballot will not be counted until you finish all questions and confirm your vote. The questions will begin momentarily. 

@@ -1,0 +1,20 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+
+{% block title %}Welcome {{ pin.first_name }}{% endblock %}
+
+{% block content %}
+
+<h2>{{ election.name }}</h2>
+<img src="{{ MEDIA_URL }}images/BandJ.jpeg">
+<p>Welcome {% if pin.first_name %}{{ pin.first_name }}{% endif %} {% if pin.last_name %}{{ pin.last_name }}{% endif %}. If this is not you, please call 877-324-7655 for technical support.</p>
+
+<p>In a moment, we will take you to a private ballot that can't be traced to you or how you voted. 
+    At the end of voting, you will receive a confirmation code that you can use to go back 
+    and verify your vote. That code will only appear once, and for privacy purposes, cannot 
+    be retrieved. Be sure to write it down if you think you might want to verify your vote later.</p>
+
+<br /><br />
+<p><center><form action="{% url election_ballot election.id %}"><input type="submit" class="btn1 bold" value="Create my confidential ballot"></form></center></p>
+	
+{% endblock %}

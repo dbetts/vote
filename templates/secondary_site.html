@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>{% block title %}Home{% endblock %} | Merriman River Group</title>
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css">
+</head>
+
+<body>
+<div class="container">
+
+    <header class="header col-sm-12 border-b-2px">
+        <div class="content-header text-color2">
+            <div class="width-60pr left-logo">
+                <img src="{{ MEDIA_URL }}images/logo-mrg-1.png" class="pull-left"/>
+            </div>
+            <div class="width-40pr padding-t-9px right-link"></div>
+        </div>
+    </header>
+
+    <div class="container-bg">
+        <div class="content-area padding-t-100px ">
+            <img src="{{ MEDIA_URL }}images/step2.png"/>
+        </div>
+        <div class="content-area padding-b-20px">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <footer class="footer text-color1">
+        <div class="content-area ">
+            <div class="padding-t-15px col-sm-12 ">{{ custom_footer }}</div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

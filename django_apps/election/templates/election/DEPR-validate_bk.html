@@ -1,0 +1,34 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+
+{% block title %}Validate your identity{% endblock %}
+
+{% block content %}
+
+<h2>{{ election.name }}</h2>
+
+<p>There's one more step before we create your secret ballot, we 
+    need to validate your identity:</p>
+
+<form method="POST" action=".">
+    {{ form.value.errors }}
+    <label>
+        {% ifequal validation_method "phone" %}
+            Last four digits of phone number starting with
+        {% else %}
+            Enter the last four digits of your membership number exclude the suffix <br><font size="-1">(For example, if your members number was <b>123-4567-0023</b> you would enter 4567)</font><br><br>Your actual member number starts with
+        {% endifequal %}{{ validate_against }}
+    </label>
+    {{ form.value }}
+    <input type="submit" value="Validate my identity"/>
+</form>
+  <br>
+   <table width="100%" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+      <td bgcolor="#FFFFCC"><blockquote>
+        <h3>Don't recognize your phone number on file?        </h3>
+        <p>Some members have noted that the board does not have their correct current phone number on file. This is often because our records may still reflect the number when the account was created. If you don't recognize your number, please call 877-324-7655 and leave a message. Your call will be returned promptly. We will guide you through the login process and forward your updated information on to the board.</p>
+      </blockquote>      </td>
+    </tr>
+  </table>
+{% endblock %}

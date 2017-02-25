@@ -1,0 +1,1 @@
+We're sorry, but {{ digits }} is an invalid response.

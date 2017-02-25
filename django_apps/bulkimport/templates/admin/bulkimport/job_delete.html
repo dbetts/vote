@@ -1,0 +1,13 @@
+{% extends "admin/delete_confirmation.html" %}
+
+{% block content %}
+
+<p>Are you sure you want to delete "{{ original }}"? 
+   {% if logs_count %}This operation will also delete {{ logs_count }} 
+   {{ original.content_type }} objects. This action cannot be reversed.{% endif %}
+   
+   <form method="POST">
+       <input type="submit" value="Yes, I'm sure" name="accept"/> or 
+       <input type="submit" value="Cancel" name="cancel"/>
+   </form>
+{% endblock %}

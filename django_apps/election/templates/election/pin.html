@@ -1,0 +1,30 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Enter PIN" %}{% endblock %}
+
+{% block content %}
+	
+    {% include "election/pin_text.html" %}
+<form name="PIN" action="" method="POST" class="clean_form">
+	<div class="clear margin-t-10px" >
+		<div class="login-pin text-color3 ">
+			<div>{{ form.errors.pin|safe }}</div>
+			<div class="pull-left input-info-icon text-left">
+				<div class="text-uppercase bold text-left">Log In</div>
+					 <div class="lock"></div>
+			</div>
+			<div class="pull-left input-information text-left">
+				<div class="bold">Enter Your PIN number:</div>
+				<input type="text" maxlength="20"  id="id_pin"  name="{{ form.pin.name }}" value="{% if form.pin.value != None %}{{ form.pin.value }}{% endif %}"  autofocus="">
+				<!--{{ form.pin }}-->
+				<input type="submit" value="{% trans "Continue" %}" class="btn1 bold ">
+			</div>
+			<div>The domain name is: {{ domain }}</div>
+			<div>The Election Id is: {{ theElectionId }}</div>
+		</div>
+		</div>
+	<div><br/></div>
+</form>
+	
+{% endblock %}

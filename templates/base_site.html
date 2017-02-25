@@ -1,0 +1,59 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>{% block title %}Home{% endblock %} | Merriman River Group</title>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header col-sm-12 border-b-2px">
+      <div class="content-header text-color2">
+         <div class="width-60pr left-logo">
+            <img src="{{ MEDIA_URL }}images/logo-mrg-1.png" class="pull-left"/>
+         </div>  
+         <div class="width-40pr padding-t-9px right-link">
+         <ul class="menu-top-link  margin-0px pull-right ">
+          <li><a href="http://mrgvote.com" class="link2" target="new">Home</a> </li>
+          <li><a href="http://merrimanriver.com/contact.html" class="link2" target="new">Contact</a></li>
+          <li><a href="http://merrimanriver.com/contact.html" class="link2" target="new">Support</a></li>
+        </ul>
+         </div>
+      </div>
+    </header>
+    <div class="border-b-2px text-center header ">
+        <img src="{{ page_banner }}">
+    </div>
+    <div class="container-bg">
+      <div class="content-area padding-t-20px "> 
+              <img src="{{ MEDIA_URL }}images/step1.png" />
+            </div>
+      <div class="content-area padding-b-20px"> 
+               {% block content %}{% endblock %}
+              <p>If you're having trouble please call {{ default_phone }}</p>
+        </div>
+              
+     </div>
+    <footer class="footer text-color1">
+      <div class="content-area "> 
+      <div class="padding-t-15px col-sm-12 "> 
+        <div class="col-sm-4">
+           <span class="font-size-22px">ALREADY VOTED?</span><br>
+          <span>Already voted and want to verify how you voted?</span>
+        </div>
+        <div class="col-sm-2">
+        <br/>
+          <a class="btn1 bold" href="{% url election_verify %}">Click Here</a>
+        </div>
+        <div class="col-sm-6 text-right about-bay">
+          <div class="bold">About Merriman River </div>
+          <a href="https://twitter.com/merrimanriver" class="link1" target="new">Twitter</a> | <a href="https://www.facebook.com/merrimanriver"  class="link1"  target="new">Facebook</a>
+        </div>  
+      </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

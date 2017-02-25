@@ -1,0 +1,1 @@
+Welcome to the {{ election.name }} election. To begin the process of creating your ballot, press 1 followed by the pound key. To learn more about phone voting and how your privacy is protected, press 9 followed by the pound key.

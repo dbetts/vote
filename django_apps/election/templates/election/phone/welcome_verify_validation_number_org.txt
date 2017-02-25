@@ -1,0 +1,2 @@
+To validate your identity, please verify your membership number.  This number is located on your bill.  Please enter the last 4 digits of your membership number, followed by the pound key. 
+Your number begins with {% for n in validate_against %}{{ n }}, , {% endfor %}.  

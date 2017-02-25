@@ -1,0 +1,2 @@
+Thank you, to validate your identity, please verify your phone number by entering the last four digits and hitting the pound key. 
+This phone  number begins with {% for n in validate_against %}{{ n }}, , {% endfor %}

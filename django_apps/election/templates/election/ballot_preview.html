@@ -1,0 +1,60 @@
+{% extends "secondary_site.html" %}
+{% load i18n %}
+{% load election_tags %}
+
+{% block title %}{% trans "Confirm your choices" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Confirm your choices" %}</h2>
+<span style="font-size: 16px">
+		<div style="border: 2px solid #ccc; padding: 5px; background-color: #fff799; text-align:left; width:75%;">
+			Your ballot has not been cast yet. <br> Please review your choices carefully and
+	click "Cast my ballot" below to complete.</div>
+
+	{% for question in questions %}
+		<h3>{{ question }}</h3>
+		{% ifnotequal question.max_responses 1 %}
+		{% ifnotequal question.max_responses preview_ballot|hash:question.id|hash:"answer"|length %}
+			<span style="color: blue">You may vote for up to {{ question.max_responses }} <br>You have chosen {{ preview_ballot|hash:question.id|hash:"answer"|length }}</span>
+		{% endifnotequal %}
+		{% endifnotequal %}
+		<ul>
+		{% for answer in preview_ballot|hash:question.id|hash:"answer_eng" %}
+			<li>{{ answer }}</li>
+		{% empty %}
+			<li><em>Skip This Contest</em></li>
+		{% endfor %}
+		</ul>
+	{% endfor %}
+	</span>
+<hr>
+
+<table width="100%" align="center" border="0">
+	<tr>
+		<td width="33%" align="center">
+			<form action="{% url election_ballot_cast election.id %}" method="post" class="clean_form">
+				{% for question in form %}
+				<div style="display:none">{{ question }}</div>
+				{% endfor %}
+				<div style="border: 2px solid #ccc; padding: 5px; background-color: #fff799; text-align:left; height: 160px;">
+					Please review your choices carefully! Once you press the cast ballot button below, your secret
+					ballot will be cast and you will not be able to make changes.
+
+					<p><input style="color: green; font-size:36px;" type="submit" value="{% trans " Cast my ballot" %}">
+					</p>
+				</div>
+			</form>
+		</td>
+		<td align="center" width="33%">OR</td>
+		<td align="center" width="33%" valign="top">
+			<form action="{% url election_ballot_change election.id %}" method="post" class="clean_form">
+				<input type="hidden" name="ballot_json" value="{{ ballot_json }}">
+				<div style="border: 2px solid #999; padding: 5px; background-color: #cccccc; text-align:center; height: 160px;">
+					<br/><br/><br/>
+					<input type="submit" style="font-size:24px;" value="Change my ballot"/>
+				</div>
+			</form>
+		</td>
+	</tr>
+</table>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% load bulkimport %}
+
+{% fetch_column_headers_from original.data as 'cols' %}
+{% fetch_column_headers_from_model original.content_type.model_class as 'model_fields' %}
+
+<h3>Field mapping</h3>
+<p>Use the pull downs to make import fields line up with the model fields. Leave the primary key (PK) blank
+for the ID to be auto-incrementally set. Fields in bold are required.</p>
+
+<input type="hidden" name="content_type" value="{{ original.content_type.id }}">
+
+<table border="1" style="text-align:right; border: 1px solid rgb(238, 238, 238); ">
+    <tr>
+        <th style="text-align:right;">Model Fields</th>
+        <td>&nbsp;</td>
+        <th style="text-align:left;">Mapping Fields</th>
+        <th style="text-align:left;">Required</th>
+        <th style="text-align:left;">Unique</th>
+    </tr>                  
+    {% for field in model_fields %} 
+        {% if field.editable %}
+        <tr>
+            <td class="_fields {% if not field.blank and not field.null %}_bold{% endif %}">
+                {% if field.related %}
+                    {% fetch_column_headers_from_model field.related.parent_model as 'related_cols' %}
+                    <select name="mapping_through[{{ field.name }}]">
+                        {% for col in related_cols %}
+                            <option value="{{ col.name }}" {%ifequal mapping_through|hash:field.name col.name %}selected{% endifequal %}>{{ field.name }}.{{ col.name }}</option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    {{ field.name }} {% if field.primary_key %}(PK){% endif %}
+                {% endif %}
+            </td>
+            
+            <td>&#8596;	</td>
+            <td>
+                <select name="mapping[{{ field.name }}]">
+                    <option value="">None</option>
+                    {% for col in cols %}
+                        <option value="{{ forloop.counter0 }}" {%ifequal mapping|hash:field.name forloop.counter0|stringformat:"s" %}selected{% endifequal %}>{{ col }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            
+            <td align="center"><input type="checkbox" name="required[{{ field.name }}]" {% if not field.blank and not field.null %}checked disabled{% else %}{%ifequal required|hash:field.name "on" %}checked{% endifequal %}{% endif %}/></td>
+            <td align="center"><input type="checkbox" name="unique[{{ field.name }}]" {% if field.primary_key %}checked disabled{% else %}{%ifequal unique|hash:field.name "on" %}checked{% endifequal %}{% endif %}/></td>
+
+        </tr>
+        {% endif %}
+    {% endfor %}
+            
+    {% if model_fields_m2m %}
+        {% for field in model_fields_m2m %} 
+            {% if field.editable %}
+            <tr>
+                <td class="_fields {% if not field.blank and not field.null %}_bold{% endif %}">
+                    {% if field.related %}
+                        {% fetch_column_headers_from_model field.related.parent_model as 'related_cols' %}
+                        <select name="mapping_through[{{ field.name }}]">
+                            {% for col in related_cols %}
+                                <option value="{{ col.name }}" {%ifequal mapping_through|hash:field.name col.name %}selected{% endifequal %}>{{ field.name }}.{{ col.name }}</option>
+                            {% endfor %}
+                        </select>
+                    {% else %}
+                        {{ field.name }} {% if field.primary_key %}(PK){% endif %}
+                    {% endif %}
+                </td>
+            
+                <td>&#8596;	</td>
+                <td>
+                    <select name="mapping[{{ field.name }}]">
+                        <option value="">None</option>
+                        {% for col in cols %}
+                            <option value="{{ forloop.counter0 }}" {%ifequal mapping|hash:field.name forloop.counter0|stringformat:"s" %}selected{% endifequal %}>{{ col }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                
+                <td align="center"><input type="checkbox" name="required[{{ field.name }}]" {%ifequal required|hash:field.name "on" %}checked{% endifequal %}/></td>
+                <td align="center">&nbsp;</td>
+
+            </tr>
+            {% endif %}
+        {% endfor %}
+
+    {% endif %}
+
+</table>

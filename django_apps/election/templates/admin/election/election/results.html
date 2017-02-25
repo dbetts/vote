@@ -1,0 +1,47 @@
+{% extends 'admin/base_site.html' %}
+{% load election_tags %}
+
+{% block title %}Election results | Django Admin{%endblock%}
+{% block breadcrumbs %}
+	<div class="breadcrumbs">
+		<a href="/admin/">Home</a> &rsaquo; 
+		<a href="/admin/election/">Election</a> &rsaquo; 
+		<a href="/admin/election/election/">Elections</a> &rsaquo; 
+		<a href="/admin/election/election/{{ election.id }}/">{{ election.name }}</a> &rsaquo; 
+		Results
+	
+	</div>
+
+{% endblock %}
+{% block content %}
+
+<h2>{{ election.name }}</h2>
+
+<h3>Totals</h3>
+{{ votes.count }} total votes from {{ pins.count }} ({{ votes.count|percentage:pins.count }})
+<p>
+	{{ election.phone_vote_count }} votes ({{ election.phone_vote_count|percentage:votes.count }}) came through the phone,
+	{{ election.web_vote_count }} votes ({{ election.web_vote_count|percentage:votes.count }}) came through the web
+</p>
+{% if votes %}
+    {% for question in election.question_set.all %}
+        <h4>{{ question }} (Choose {{ question.max_responses }})</h4>
+        {% votes_for_question question in votes as choices %}
+        <table>
+            <tr>
+                <th>Answer</th>
+                <th>Votes</th>
+                <th>Percentage</th>
+            </tr>
+        {% for choice in choices %}
+            <tr>
+                <td width="200px">{{ choice.answer }}</td>
+                <td width="50px">{{ choice.total }}</td>
+                <td>{{ choice.total|percentage:votes.count }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

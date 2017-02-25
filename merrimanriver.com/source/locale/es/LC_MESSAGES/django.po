@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-11 21:55-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings-dev.py:85 settings.py:85
+msgid "English"
+msgstr ""
+
+#: settings-dev.py:86 settings.py:86
+msgid "German"
+msgstr ""
+
+#: settings-dev.py:87 settings.py:87
+msgid "Spanish"
+msgstr ""
+
+#: settings-dev.py:88 settings.py:88
+msgid "Chinese"
+msgstr ""
+
+#: election/forms.py:7
+msgid "Please enter your ballot PIN"
+msgstr "Please enter your ballot PIN (ES)"
+
+#: election/forms.py:28
+msgid "What is your favorite color?"
+msgstr "What is your favorite color? (ES)"
+
+#: election/views.py:15 election/templates/election/ballot.html:3
+#: election/templates/election/ballot.html:6
+msgid "ballot"
+msgstr "ballot (ES)"
+
+#: election/templates/election/ballot.html:11
+msgid "Vote"
+msgstr "Vote (ES)"
+
+#: election/templates/election/confirm.html:3
+#: election/templates/election/confirm.html:6
+msgid "Confirmation"
+msgstr "Confirmation (ES)"
+
+#: election/templates/election/index.html:3
+msgid "Home"
+msgstr "Home (ES)"
+
+#: election/templates/election/index.html:6
+msgid "Please choose a language"
+msgstr "Please choose a language (ES)"
+
+#: election/templates/election/pin.html:4
+msgid "Enter PIN"
+msgstr "Enter PIN (ES)"
+
+#: election/templates/election/pin.html:11
+msgid "Submit"
+msgstr "Submit (ES)"
