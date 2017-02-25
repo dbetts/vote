@@ -78,15 +78,11 @@ def main(job_id):
     for key, value in mapping_through.iteritems():
         related_models[key] = 'election_' + key
 
-    logging.debug("The INSERT table is: %s", (insert_table,))
-    logging.debug(related_models)
-    # related_models = {
-    #     'election': 'election_election',
-    #     'ballot': 'election_ballot'
-    # }
-
     import_file = open('/home/merriman/media/' + original['data'])
-    lines = csv.reader(import_file.readlines(), quoting=csv.QUOTE_ALL)
+    read_file = import_file.readlines()
+    csv_count = len(read_file)
+
+    lines = csv.reader(read_file, quoting=csv.QUOTE_ALL)
 
     added = 0
 
@@ -111,20 +107,37 @@ def main(job_id):
                 # If the field is required, check to make sure there is a value
                 if required and required.has_key(k):
                     if not val or val == '':
-                        cur.execute("""INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), "Missing required field"))
-                        db.commit()
+                        logging.debug("Missing %ss required value", k)
                         do_not_add = True
+                        try:
+                            sql_string = """INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)"""
+                            cur.execute(sql_string, (job_id, json.dumps(line), "Missing required field"))
+                            db.commit()
+                        except Exception, e:
+                            logging.debug("Error inserting bulkimport_error: %s, %s, %s" % (job_id, json.dumps(line), "Missing required field"))
+
                         break
 
                 # If the field is unique, check to make sure it doesn't already exist
                 if unique and unique.has_key(k):
-                    cur.execute("""SELECT count(*) AS count FROM """+insert_table+""" WHERE %s = %s""", (k, val))
-                    result = cursor_fetch(cur)
-                    c = result['count']
-                    if not c == 0:
+                    try:
+                        sql_string = """SELECT id FROM """+insert_table+""" WHERE %s = %s""" % (k, val)
+                        cur.execute(sql_string)
+                        c = cur.rowcount
+
+                    except Exception, e:
                         do_not_add = True
-                        cur.execute("""INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), "Duplicate value for unique field"))
-                        db.commit()
+                        logging.debug("Error fetching unique count: %s" % (e,))
+                        break
+
+                    if c > 0:
+                        do_not_add = True
+                        try:
+                            cur.execute("""INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), "Duplicate value for unique field"))
+                            db.commit()
+                        except:
+                            logging.debug("Error inserting bulkimport_error: %s, %s, %s" % (job_id, json.dumps(line), "Duplicate value for unique field"))
+
                         break
 
                 try:
@@ -151,9 +164,14 @@ def main(job_id):
                         else:
                             if required and required.has_key(k):
                                 do_not_add = True
-                                msg = "A required %s object was not found by %s='%s'" % (k, relation, val)
-                                cur.execute("""INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), msg))
-                                db.commit()
+                                try:
+                                    msg = "A required %s object was not found by %s='%s'" % (k, relation, val)
+                                    cur.execute(
+                                        """INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), msg))
+                                    db.commit()
+                                except:
+                                    logging.debug("Error inserting bulkimport_error: %s, %s, %s" % (job_id, json.dumps(line), msg))
+
                                 break
 
 
@@ -182,15 +200,16 @@ def main(job_id):
                 try:
                     sql_string = """INSERT INTO """+insert_table+""" ("""+col_string+""") VALUES ("""+val_string+""")"""
                     cur.execute(sql_string, value_list)
+
+                    db.commit()
+                    inserted = cur.lastrowid
+
                 except Exception, e:
                     logging.debug("There was an error generating or executing the INSERT string: %s", (e,))
                     logging.debug("Column names: " + col_string)
                     logging.debug("Column placeholders: " + val_string)
                     logging.debug("Column values: " + ':'.join(map(str, value_list)))
                     break
-
-                db.commit()
-                inserted = cur.lastrowid
 
                 cur.execute("""INSERT INTO bulkimport_log (content_type_id, job_id, remote_pk) VALUES (%s, %s, %s)""", (original['content_type_id'], job_id, inserted))
                 db.commit()
@@ -211,13 +230,13 @@ def main(job_id):
 
                     arg_json = json.dumps(arg_json)
 
-                if required and required.has_key(k):
-                    message = "Couldn't add row (%s)" % e
-                    cur.execute("""INSERT INTO bulkimport_error (job_id, data, message, extra) VALUES (%s, %s, %s, %s)""", (job_id, json.dumps(line), message, arg_json))
-                    db.commit()
+                # if required and required.has_key(k):
+                #     message = "Couldn't add row (%s)" % e
+                #     cur.execute("""INSERT INTO bulkimport_error (job_id, data, message, extra) VALUES (%s, %s, %s, %s)""", (job_id, json.dumps(line), message, arg_json))
+                #     db.commit()
 
-    # Uodate the status in the Job Model, bulkimport_job table.
-    if added > 0:
+    # Update the status in the Job Model, bulkimport_job table.
+    if csv_count < 3 and added == 0 or added > 0:
         new_status = 'complete'
     else:
         new_status = 'failed'

@@ -43,7 +43,8 @@ for the ID to be auto-incrementally set. Fields in bold are required.</p>
                 </select>
             </td>
             
-            <td align="center"><input type="checkbox" name="required[{{ field.name }}]" {% if not field.blank and not field.null %}checked disabled{% else %}{%ifequal required|hash:field.name "on" %}checked{% endifequal %}{% endif %}/></td>
+            <td align="center"><input type="checkbox" {% if not field.blank and not field.null %}checked disabled{% else %}{%ifequal required|hash:field.name "on" %}checked{% endifequal %}{% endif %}/></td>
+            {% if not field.blank and not field.null %}<input type="hidden" name="required[{{ field.name }}]" value="on">{% endif %}
             <td align="center"><input type="checkbox" name="unique[{{ field.name }}]" {% if field.primary_key %}checked disabled{% else %}{%ifequal unique|hash:field.name "on" %}checked{% endifequal %}{% endif %}/></td>
 
         </tr>

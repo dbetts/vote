@@ -141,21 +141,12 @@ def validate(request):
     validation_text = asset.validation_text
 
     if not validation_text:
-        validation_text = 'Last four digits of phone number starting with'
+        validation_text = 'Last four digits of your account number starting with'
 
-    
-    if pin.phone:
-        #validation_method = 'phone'
-        validate_against = pin.phone[:6]
-        validate_answer = pin.phone[6:10]        
-    elif pin.validation_number:
-        validate_against = pin.validation_number[:5]
-        #validate_answer = pin.validation_number[5:10]    
-        #validate_answer = pin.validation_number[5:9]
-        validate_answer = pin.validation_number
-        #validation_method = 'number'
-    else:
-        ####return HttpResponseRedirect(reverse('election_welcome', args=[pin.election.id]))
+    validate_against = pin.validation_start
+    validate_answer = pin.validation_number
+
+    if not validate_against:
         return HttpResponseRedirect(reverse('election_ballot', args=[pin.election.id]))
     
     if request.method == "POST":
@@ -172,9 +163,6 @@ def validate(request):
             
     else:
         form = ValidateForm()
-    
-    if pin.phone:
-        validate_against = "(%s) %s-XXXX" % (pin.phone[:3], pin.phone[3:6])
         
     context = {
                 'validation_text': validation_text,
@@ -232,7 +220,7 @@ def ballot(request, election_id, change=False, cast=False):
     pin = get_object_or_404(PIN, pin=request.session.get('pin'), election=election)
     
     try:
-        Log.objects.get(pin=pin)
+        Log.objects.get(pin=pin.pin)
     except Log.DoesNotExist:
         pass
     else:
@@ -240,7 +228,7 @@ def ballot(request, election_id, change=False, cast=False):
         raise Http404
         
     try:
-        Mail_Log.objects.get(pin=pin)
+        Mail_Log.objects.get(pin=pin.pin)
     except Mail_Log.DoesNotExist:
         pass
     else:
@@ -281,7 +269,7 @@ def ballot(request, election_id, change=False, cast=False):
         form = BallotForm(form_post, ballot_jn=ballot_json, ballot=ballot)
         logging.info("Form was created")
         
-        logging.debug("Processing ballot for %s" % pin.pin)        
+        logging.debug("Processing ballot for %s" % pin.pin)
         if form.is_valid():
             logging.debug("Ballot for %s is valid" % pin.pin)
             
@@ -289,7 +277,7 @@ def ballot(request, election_id, change=False, cast=False):
                 confirmation = form.save()
                 if confirmation:
                     logging.debug("Ballot for %s has been saved" % pin.pin)
-                    Log.objects.create(election=election, pin=pin)
+                    Log.objects.create(election=election, pin=pin.pin)
                     return HttpResponseRedirect(reverse('election_confirm', args=[confirmation.uuid]))
                 else:
                     logging.debug("Ballot for %s could not be saved" % pin.pin)

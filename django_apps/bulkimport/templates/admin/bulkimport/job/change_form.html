@@ -71,7 +71,7 @@
             {% include "admin/bulkimport/_mapping.html" %}
     {% else %}
         {% ifnotequal original.status "new" %}
-            <p>Job added {{ count }} {{ original.content_type }} objects and encountered {{ original.error_set.count }} invalid rows.</p>
+            <p>Job added {{ count }} {{ original.content_type }} objects and encountered {{ error_count }} invalid rows.</p>
         {% endifnotequal %}
     {% endifequal %}        
 

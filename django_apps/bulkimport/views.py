@@ -9,7 +9,7 @@ try:
     import json
 except ImportError:
     from django.utils import simplejson as json
-from django_apps.bulkimport.models import Job, Template, Log
+from django_apps.bulkimport.models import Job, Template, Log, Error
 from django_apps.bulkimport.forms import JobForm, TemplateForm, JobFormTemplate
 import logging
 
@@ -82,11 +82,6 @@ def job_change(request, job_id):
     try:
         original = get_object_or_404(Job, pk=job_id)
     except Job.DoesNotExist:
-        logging.debug("")
-        logging.debug("")
-        logging.debug("Record not found in the Job class, job_change table with pk:id=" + str(job_id))
-        logging.debug("")
-        logging.debug("")
         raise Http404
                 
     data = {}
@@ -140,6 +135,7 @@ def job_change(request, job_id):
     
         if original.status != "new":
             data['count'] = Log.objects.filter(job=original).count()
+            data['error_count'] = Error.objects.filter(job=original).count()
         
     data['form'] = form
     
