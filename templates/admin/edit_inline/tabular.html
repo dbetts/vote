@@ -21,7 +21,10 @@
 
      {% with loop_name=inline_admin_formset.opts.verbose_name_plural %}
      {% for inline_admin_form in inline_admin_formset %}
-        {% if loop_name == 'assets' and inline_admin_form.original or loop_name != 'assets' %} {# (loop_name and original) or !loop_name #}
+
+        {# If there is already an asset record, show it, otherwise show an empty form. #}
+
+        {% if loop_name == 'assets' and forloop.first or loop_name != 'assets' %} {# (loop_name and first) or !loop_name #}
 
             {% if inline_admin_form.form.non_field_errors %}
             <tr><td colspan="{{ inline_admin_form.field_count }}">{{ inline_admin_form.form.non_field_errors }}</td></tr>
