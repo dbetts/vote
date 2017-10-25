@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
@@ -78,6 +78,9 @@ def job_change(request, job_id):
     Gathers the mapping data after a base job has been created. Mapping data
     associates columns of the CSV with a model field.
     """
+    logging.debug("")
+    logging.debug("Starting job_change on line 82.")
+    logging.debug("")
 
     try:
         original = get_object_or_404(Job, pk=job_id)
@@ -111,6 +114,12 @@ def job_change(request, job_id):
                 We request the pid so the child process returns immediately while it works in
                 the background.
             """
+            logging.debug("")
+            logging.debug("")
+            logging.debug("Form is a POST and is Valid (Line 116). We are calling the threaded import.py file.")
+            logging.debug("")
+            logging.debug("")
+
             directory = "/home/merriman/django_apps/bulkimport/"
             the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
                                        cwd=directory).pid
@@ -440,14 +449,12 @@ def template_change(request, template_id):
 @staff_member_required
 def template_new_import(request, template_id):
     template = get_object_or_404(Template, pk=template_id)
+
+    logging.debug("")
+    logging.debug("Starting template_new_import on line 454.")
+    logging.debug("")
     
     if request.method == "POST":
-        logging.debug("")
-        logging.debug("")
-        logging.debug("Form is a POST")
-        logging.debug("")
-        logging.debug("")
-                    
         form = JobFormTemplate( request.POST, request.FILES)
                         
         if form.is_valid():
@@ -461,18 +468,17 @@ def template_new_import(request, template_id):
             f.template = template
             f.save()
 
-            logging.debug("")
-            logging.debug("")
-            logging.debug("Form is valid")
-            logging.debug("")
-            logging.debug("")
-
             """
                 Start the import process from the cli so we can release the process.
                 threading.Thread does not work for some odd reason, so we have to do it this way.
                 We request the pid so the child process returns immediately while it works in
                 the background.
             """
+
+            logging.debug("")
+            logging.debug("Form is a POST and is Valid (Line 479). We are calling the threaded import.py file.")
+            logging.debug("")
+
             directory = "/home/merriman/django_apps/bulkimport/"
             the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
                              cwd=directory).pid
@@ -483,9 +489,7 @@ def template_new_import(request, template_id):
         
     else:
         logging.debug("")
-        logging.debug("")
         logging.debug("Form is NOT a POST")
-        logging.debug("")
         logging.debug("")
 
         form = JobFormTemplate()

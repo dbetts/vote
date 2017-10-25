@@ -131,7 +131,12 @@ def validate(request):
         return _if_banned(request)
 
     pin = get_object_or_404(PIN, pin=request.session.get('pin'))
-    asset = Asset.objects.get(election=pin.election)
+    # If the following breaks, it is because there is no ASSET assigned to this election.
+    try:
+        asset = Asset.objects.get(election=pin.election)
+    except Asset.DoesNotExist:
+        return HttpResponse('Hey Bob, there is no Asset assigned to this election.')
+
     validation_text = asset.validation_text
 
     if not validation_text:

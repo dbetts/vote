@@ -9,18 +9,21 @@ class PINAdmin(admin.ModelAdmin):
 # ('sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'ballot_extra', 'exit_url')
 class AssetInline1(admin.TabularInline):
     model = Asset
-    extra = 0
-    exclude = ('validation_text', 'ballot_extra', 'exit_url')
+    extra = 1
+    class Media:
+        css = {
+            'all': ('css/custom_admin.css',)
+        }
 
-class AssetInline2(admin.TabularInline):
-    model = Asset
-    extra = 0
-    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'ballot_extra',)
+#class AssetInline2(admin.TabularInline):
+#    model = Asset
+#    extra = 1
+#    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'ballot_extra',)
 
-class AssetInline3(admin.TabularInline):
-    model = Asset
-    extra = 0
-    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'exit_url')
+#class AssetInline3(admin.TabularInline):
+#    model = Asset
+#    extra = 1
+#    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'exit_url')
 
 class ElectionAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -33,7 +36,7 @@ class ElectionAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ('active_election',)
     inlines = [
-        AssetInline1, AssetInline2, AssetInline3,
+        AssetInline1,
     ]
 
 class QuestionInline(admin.TabularInline):

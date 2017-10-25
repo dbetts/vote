@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(
     level       = logging.DEBUG,
     format      = '%(asctime)s %(levelname)s %(message)s',
-    filename    = '/home/merriman/merrimanriver.com/logs/merriman_thread.log',
+    filename    = '/home/merriman/merrimanriver.com/logs/threaded_call.log',
     filemode    = 'a'
 )
 
@@ -58,6 +58,7 @@ def main(job_id):
         cur.execute("""SELECT * FROM bulkimport_job WHERE id = %s""", (job_id,))
 
     original = cursor_fetch(cur)
+
     if not original['mapping'] or not original['mapping_through']:
         logging.debug("The bulkimport_job record is missing the mapping or mapping_through records.")
         raise Http404
@@ -78,10 +79,11 @@ def main(job_id):
     for key, value in mapping_through.iteritems():
         related_models[key] = 'election_' + key
 
-    import_file = open('/home/merriman/media/' + original['data'])
+    import_file = open('/home/merriman/media/' + original['data'], 'rU')
+
     read_file = import_file.readlines()
     csv_count = len(read_file)
-
+    logging.debug("The len of the file is: " + str(csv_count))
     lines = csv.reader(read_file, quoting=csv.QUOTE_ALL)
 
     added = 0
@@ -94,9 +96,7 @@ def main(job_id):
     for line in lines:
         args = {}
         do_not_add = False
-
         for k, v in mapping.items():
-
             if v is not None:
                 try:
                     val = line[int(v)].strip()

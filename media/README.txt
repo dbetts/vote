@@ -1,6 +1,6 @@
 This directory holds all of the media files for use in the site.
 It contains assets such as Video files, Audio files, and PDF files, among other.
-This diectory is contained outside of the web root to facilitate with archiving of old records,
+This directory is contained outside of the web root to facilitate the archiving of old records,
 and to increase the security of the data contained therein.
 
 The folder structure will be stored as follows:
