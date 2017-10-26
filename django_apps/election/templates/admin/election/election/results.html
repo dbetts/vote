@@ -20,8 +20,13 @@
 <h3>Totals</h3>
 {{ votes.count }} total votes from {{ pins.count }} ({{ votes.count|percentage:pins.count }})
 <p>
+    {% if votes.count == 0 %}
+    0 votes came through the phone,
+    0 votes came through the web
+    {% else %}
 	{{ election.phone_vote_count }} votes ({{ election.phone_vote_count|percentage:votes.count }}) came through the phone,
 	{{ election.web_vote_count }} votes ({{ election.web_vote_count|percentage:votes.count }}) came through the web
+    {% endif %}
 </p>
 {% if votes %}
     {% for question in election.question_set.all %}
