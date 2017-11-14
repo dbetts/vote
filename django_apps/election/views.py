@@ -335,7 +335,14 @@ def confirm(request, uuid):
     """
 
     try:
-        election = Election.objects.select_related().get(pk=request.session.get('election_id'))
+        vote = Vote.objects.get(uuid=uuid)
+        election_id = vote.election_id
+    except Vote.DoesNotExist:
+        return render_to_response('election/confirm_error.html',
+                        context_instance=RequestContext(request))
+
+    try:
+        election = Election.objects.select_related().get(pk=election_id)
         asset = Asset.objects.get(election=election)
         exit_url = asset.exit_url
 
@@ -347,11 +354,7 @@ def confirm(request, uuid):
         # Usually this happens when there is no sub-domain that matches the input URL.
         exit_url = settings.DEFAULT_EXIT_PAGE
     
-    try:
-        vote = Vote.objects.get(uuid=uuid)
-    except Vote.DoesNotExist:
-        return render_to_response('election/confirm_error.html',
-                        context_instance=RequestContext(request))
+
                         
     try:
         del request.session['pin']
