@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.core.files.storage import FileSystemStorage
+
 import random
 import datetime
 import uuid
@@ -126,7 +126,7 @@ class Election(models.Model):
     
 class Log(models.Model):
     election    = models.ForeignKey(Election)
-    pin         = models.IntegerField() #ForeignKey(PIN)
+    pin         = models.ForeignKey(PIN) #models.IntegerField() #ForeignKey(PIN)
     time        = models.DateTimeField(auto_now_add=True)
         
     def __unicode__(self):
@@ -153,7 +153,7 @@ class Log(models.Model):
 
 class Mail_Log(models.Model):
     election    = models.ForeignKey(Election)
-    pin         = models.IntegerField() #ForeignKey(PIN)
+    pin         = models.ForeignKey(PIN) # IntegerField()
     time        = models.DateTimeField(auto_now_add=True)
     
     class Meta:

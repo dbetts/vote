@@ -440,7 +440,6 @@ class BallotForm(forms.Form):
                                     'answer_eng': answer_eng}
 
         if commit:
-            logging.debug("Attempting to save vote")
             newValue = self.ballot_json.copy()
             logging.debug(newValue)
             

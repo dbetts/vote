@@ -13,6 +13,8 @@ except ImportError:
 
 import logging
 import datetime
+# from django.db import connection
+import sys
 
 import twilio
 
@@ -20,7 +22,14 @@ from django_apps.election.forms import PINForm, BallotForm, VerifyForm, Validate
 from django_apps.election.models import Election, PIN, Log, Mail_Log, Ballot, Question, Vote, Asset
 from django_apps.election.models import Phone_Session, Phone_Choice, Choice, Ballot_Question
 from django_apps.election.models import Invalid_Response
-from itertools import chain
+# from itertools import chain
+
+def catchThatBugger(exctype, value, traceBack):
+    logging.critical("Exception Type: %s", exctype)
+    logging.critical("Exceptoin Value: %s", value)
+    logging.critical("Traceback: %s", traceBack)
+
+sys.excepthook = catchThatBugger
 
 def _check_if_banned_request(identification):
     
@@ -219,7 +228,7 @@ def ballot(request, election_id, change=False, cast=False):
     pin = get_object_or_404(PIN, pin=request.session.get('pin'), election=election)
     
     try:
-        Log.objects.get(pin=pin.pin)
+        Log.objects.get(pin=pin)
     except Log.DoesNotExist:
         pass
     else:
@@ -227,7 +236,7 @@ def ballot(request, election_id, change=False, cast=False):
         raise Http404
         
     try:
-        Mail_Log.objects.get(pin=pin.pin)
+        Mail_Log.objects.get(pin=pin)
     except Mail_Log.DoesNotExist:
         pass
     else:
@@ -266,17 +275,12 @@ def ballot(request, election_id, change=False, cast=False):
         logging.info("Message was posted")
         logging.info(form_post)
         form = BallotForm(form_post, ballot_jn=ballot_json, ballot=ballot)
-        logging.info("Form was created")
-        
-        logging.debug("Processing ballot for %s" % pin.pin)
+
         if form.is_valid():
-            logging.debug("Ballot for %s is valid" % pin.pin)
-            
             if cast:
                 confirmation = form.save()
                 if confirmation:
-                    logging.debug("Ballot for %s has been saved" % pin.pin)
-                    Log.objects.create(election=election, pin=pin.pin)
+                    Log.objects.create(election=election, pin=pin)
                     return HttpResponseRedirect(reverse('election_confirm', args=[confirmation.uuid]))
                 else:
                     logging.debug("Ballot for %s could not be saved" % pin.pin)
@@ -402,7 +406,7 @@ def verify(request):
 
 @staff_member_required
 def pin_status(request, election_id):
-    import csv, os
+    # import csv, os
     
     try:
         election = Election.objects.select_related().get(pk=election_id)
@@ -502,7 +506,7 @@ def _return_phone_uuid(request):
 
 def _return_session(request):
     uuid = _return_phone_uuid(request)
-    
+
     if not uuid:
         raise Http404
         
@@ -511,7 +515,7 @@ def _return_session(request):
     except Phone_Session.DoesNotExist:
         logging.debug("Phone %s - No matching session" % (uuid))
         raise Http404
-    
+
     return session
 
 
@@ -608,7 +612,7 @@ def phone_ballot(request, election_id):
     if not election.active():
         logging.debug("Phone %s - Election (%s) is inactive" % (uuid, election))
         return error_to_phone(_phone_template('election/phone/inactive.txt', {'election': election}))
-        
+
     if _check_if_banned_request(phone_number):
         return error_to_phone(_phone_template('election/phone/banned.txt'),
                                                 audio=election.audio_if_banned)    
@@ -628,53 +632,53 @@ def phone_ballot(request, election_id):
         r.append(g)
         
         return render_to_phone(r)
-                
+
     try:
         pin = PIN.objects.get(pin=pin_digits, election=election)
     except PIN.DoesNotExist:
         Invalid_Response.objects.create(identification=phone_number,
                                         digits=pin_digits)
-        
+
         logging.debug("Phone %s - PIN (%s) not found" % (uuid, pin_digits))
-        return error_to_phone("We're sorry, but the PIN %s was not found." % pin_digits, 
+        return error_to_phone("We're sorry, but the PIN %s was not found." % pin_digits,
                                 redirect=reverse("election_phone_ballot", args=[election_id]))
-    
+
     try:
         Log.objects.get(pin=pin)
     except Log.DoesNotExist:
         pass
     else:
-        logging.debug("Phone %s - Duplicate vote request outside of form--denied creating ballot" % uuid)
+        logging.debug("Phone %s - Duplicate vote request outside of form--denied creating ballot: %s", uuid)
         return error_to_phone("We're sorry, but the entered PIN has already voted in this election.",
                                 audio=election.audio_already_voted)
-                                
+
     try:
         Mail_Log.objects.get(pin=pin)
     except Mail_Log.DoesNotExist:
         pass
     else:
-        logging.debug("Phone %s - Duplicate vote request outside of form from mail log--denied creating ballot" % uuid)
+        logging.debug("Phone %s - Duplicate vote request outside of form from mail log--denied creating ballot: %s", uuid)
         return error_to_phone("We're sorry, but the entered PIN has already voted in this election.",
                                 audio=election.audio_already_voted)
-    
+
     try:
-        ballot = Ballot.objects.get(pk=pin.ballot.id, election=election)
+        ballot = Ballot.objects.get(pk=pin.ballot_id) # DSB, changed this: pin.ballot.id, Removed this parameter: , election=election
     except Ballot.DoesNotExist:
         logging.debug("Phone - %s Ballot ID %d could not be found for Election %d" % 
                         (uuid, pin.ballot_id, election.id))        
         return error_to_phone("We're sorry, but your ballot could not be generated.", 
                                 audio=election.audio_error)
-    
+
     try:
         session = Phone_Session.objects.get(uuid=uuid)
     except:
-        session = Phone_Session.objects.create( uuid=uuid, 
-                                                election=election, 
+        session = Phone_Session.objects.create( uuid=uuid,
+                                                election=election,
                                                 pin=pin,
                                                 next_question=ballot.questions.all().order_by('ballot_question__order')[0])
     else:
-        logging.debug("Phone %s - phone_ballot User had an existing session" % uuid)
-        
+        logging.debug("Phone %s - phone_ballot User had an existing session: %s", uuid)
+
     r = twilio.Response()
     r.addRedirect(reverse('election_phone_verify', args=[election_id]))
     
@@ -685,7 +689,7 @@ def phone_verify(request, election_id):
     """
     Verifies the user against their phone number or verification value
     """
-    
+
     def proceed_to_questions(session, election):
         """
         Skips users onto the questions, this is a nested function because it's used
@@ -719,18 +723,22 @@ def phone_verify(request, election_id):
     
     digits = request.REQUEST.get('Digits', False)
         
-    if session.pin.phone:
-        validate_against = session.pin.phone[:6]
-        validate_answer = session.pin.phone[6:10]
-        template = 'election/phone/welcome_verify.txt'
+    if session.pin.validation_start:
+        # validate_against = session.pin.validation_start #[:6]
+        validate_answer = session.pin.validation_number #[6:10]
+        # template = 'election/phone/welcome_verify.txt'
+        asset = Asset.objects.get(election=election)
+        twilioText = asset.validation_text + ' then press the pound key.'
     elif session.pin.validation_number:
-        validate_against = session.pin.validation_number[:5]
-        validate_answer = session.pin.validation_number[5:9]
+        validate_against = session.pin.validation_number #[:5]
+        validate_answer = session.pin.validation_number #[5:9]
         template = 'election/phone/welcome_verify_validation_number.txt'
+        twilioText = _phone_template(template, {'validate_against': validate_against })
     else:
         """
         PIN has no phone or validation number, so we need to skip the verification
         """
+        logging.debug("NO Phone nor Validation_Number.")
         return proceed_to_questions(session=session, election=election)
     
     if digits:
@@ -752,8 +760,8 @@ def phone_verify(request, election_id):
         r = twilio.Response()
         
         g = twilio.Gather(timeout=10, action=reverse('election_phone_verify', args=[election_id]))
-        g.append(twilio.Say(_phone_template(template, {'validate_against': validate_against })))
-        
+        # g.append(twilio.Say(_phone_template(template, {'validate_against': validate_against })))
+        g.append(twilio.Say(twilioText))
         r.append(g)
     
     return render_to_phone(r)
@@ -788,8 +796,8 @@ def phone_question(request, question_id):
                         args=[question_id]))
                     
     for choice in question.choices.all().exclude(pk__in=limit):
-        
         if choice.audio_choice:
+            # If the audio file does not exist on the file server, the system will get caught in a loop.
             g.append(twilio.Play(choice.audio_choice.url))
         else:
             g.append(twilio.Say(_phone_template('election/phone/choice.txt', 
@@ -807,7 +815,7 @@ def phone_question(request, question_id):
         r.append(twilio.Say(_phone_template('election/phone/_repeat.txt')))
     
     r.append(g)
-        
+
     r.addRedirect(reverse('election_phone_question', args=[question_id]))
     
     logging.debug("Phone %s - Presenting question \"%s\"" % (session.uuid, question))
@@ -999,11 +1007,11 @@ def phone_cast_ballot(request):
     else:
         logging.debug("Phone %s Duplicate vote request, denied casting ballot" % session.uuid)
         return error_to_phone("You have already cast a ballot for this election.")
-        
+
     ballot_choices = {}
-    
-    choices = session.phone_choice_set.all()
-    
+
+    choices   = session.phone_choice_set.all()
+
     questions = session.phone_choice_set.all()
     questions.query.group_by = ['question_id']
     
