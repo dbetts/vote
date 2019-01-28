@@ -9,13 +9,15 @@ class TemplateForm(forms.ModelForm):
     
     class Meta:
         model = Template
+        fields = '__all__'
 
 class JobForm(forms.ModelForm):
     content_type_name = settings.CONTENT_TYPE_MODELS
-    content_type = forms.ModelChoiceField(ContentType.objects.filter(name__in=content_type_name))
+    content_type = forms.ModelChoiceField(ContentType.objects.filter(model__in=content_type_name))
         
     class Meta:
         model = Job
+        fields = '__all__'
     
 class JobFormTemplate(forms.ModelForm):
     

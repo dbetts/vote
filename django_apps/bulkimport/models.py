@@ -24,9 +24,8 @@ class Log(models.Model):
     content_type = models.ForeignKey(ContentType)
     job = models.ForeignKey('Job')
     remote_pk = models.CharField(max_length=100)
-    
-    def __unicode__(self):
-        
+
+    def __str__(self):  # def __unicode__(self):
         return "%s - #%s" % (self.job, self.remote_pk)
 
 
@@ -35,8 +34,8 @@ class Error(models.Model):
     data = models.TextField(blank=True)
     extra = models.TextField(blank=True)
     message = models.TextField(blank=True)
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return str(self.id)
 
 
@@ -51,8 +50,8 @@ class Template(models.Model):
     
     class Meta:
         ordering = ['name']
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return self.name
         
     def create_job(self):
@@ -72,8 +71,8 @@ class Job(models.Model):
     required        = models.TextField(blank=True, editable=False)
     unique          = models.TextField(blank=True, editable=False)
     template        = models.ForeignKey(Template)
-        
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s - %s" % (self.content_type, self.date)
     
     def save(self, *args, **kwargs):

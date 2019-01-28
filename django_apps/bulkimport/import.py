@@ -105,7 +105,7 @@ def main(job_id):
                     continue
 
                 # If the field is required, check to make sure there is a value
-                if required and required.has_key(k):
+                if required and k in required:
                     if not val or val == '':
                         logging.debug("Missing %ss required value", k)
                         do_not_add = True
@@ -119,7 +119,7 @@ def main(job_id):
                         break
 
                 # If the field is unique, check to make sure it doesn't already exist
-                if unique and unique.has_key(k):
+                if unique and k in unique:
                     try:
                         sql_string = """SELECT id FROM """+insert_table+""" WHERE %s = %s""" % (k, val)
                         cur.execute(sql_string)
@@ -149,7 +149,7 @@ def main(job_id):
                     args[str(k)] = val
 
                 else:
-                    if related_models.has_key(k):
+                    if k in related_models:
                         # FK field
                         # Get the record from the DB that this input has a foreign key to.
                         cur.execute("""SELECT COUNT(*) as count FROM """ + related_models[k] + """ WHERE %s = %s""" % (relation, val))
@@ -162,7 +162,7 @@ def main(job_id):
                                 args[str(k)] = val
 
                         else:
-                            if required and required.has_key(k):
+                            if required and k in required:
                                 do_not_add = True
                                 try:
                                     msg = "A required %s object was not found by %s='%s'" % (k, relation, val)

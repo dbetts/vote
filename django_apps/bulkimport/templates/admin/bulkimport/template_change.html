@@ -7,6 +7,6 @@
     {% include "admin/bulkimport/_mapping.html" %}
     
     {% if mapping %}
-    <h2><a href="{% url bulkimport_new_from_template original.id %}">Create new job with this template</a></h2>
+    <h2><a href="{% url 'bulkimport_new_from_template' original.id %}">Create new job with this template</a></h2>
     {% endif %}
 {% endblock %}

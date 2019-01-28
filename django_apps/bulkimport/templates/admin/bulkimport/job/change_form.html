@@ -1,6 +1,6 @@
 {% extends "admin/change_form.html" %}
-{% load bulkimport %}
-{% load i18n admin_modify adminmedia %}
+{% load bulkimport i18n admin_modify static %}
+
 
 {% block extrahead %}
     {{ block.super }}
@@ -79,8 +79,8 @@
         <h3>Errors</h3>
         <div id="pager" class="pager">
             <form action="">
-        		<img src="{{ MEDIA_URL }}images/bulkimport/prev.png" class="prev" style="vertical-align: middle;"/>
-        		<img src="{{ MEDIA_URL }}images/bulkimport/next.png" class="next" style="vertical-align: middle;"/>
+        		<img src="{% static 'images/bulkimport/prev.png' %}" class="prev" style="vertical-align: middle;"/>
+        		<img src="{% static 'images/bulkimport/next.png' %}" class="next" style="vertical-align: middle;"/>
         		<select class="pagesize">
         			<option selected="selected" value="10">10 per page</option>
         			<option value="20">20 per page</option>
@@ -126,12 +126,13 @@
         <p>Base on template: 
             <select id="template_chooser">
                 <option>&nbsp;</option>
-                {% for t in templates %}<option value="{% url bulkimport_new_from_template t.id %}">{{ t }}</option>{% endfor %}
+                {% for t in templates %}<option value="{% url 'bulkimport_new_from_template' t.id %}">{{ t }}</option>{% endfor %}
             </select>
         </p>
     {% endif %}
     
     <form enctype="multipart/form-data" action="" method="post" >
+        {% csrf_token %}
         <div>
 
         <fieldset class="module aligned">

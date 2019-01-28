@@ -38,7 +38,7 @@ class PostToDictMiddleware(object):
             var = self.dict_re.match(k)
             
             if var:
-                if not data.has_key(var.group(1)):
+                if not var.group(1) in data:
                     data[var.group(1)] = {}
                     
                 try:

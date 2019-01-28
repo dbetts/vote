@@ -1,13 +1,11 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import url
+from django_apps.bulkimport.views import *
 
-urlpatterns = patterns('',
-    (r'^admin/bulkimport/job/(?P<job_id>(\d+))/$', 'bulkimport.views.job_change', {}, 'bulkimport_job_change'),
-    (r'^admin/bulkimport/job/add/$', 'bulkimport.views.job_add'),
-    (r'^admin/bulkimport/job/(?P<job_id>(\d+))/delete/$', 'bulkimport.views.job_delete'),
-    (r'^admin/bulkimport/template/(?P<template_id>(\d+))/$', 'bulkimport.views.template_change'),
-    (r'^admin/bulkimport/job_from_template/(?P<template_id>(\d+))/$',
-        'bulkimport.views.template_new_import',
-        {},
-        'bulkimport_new_from_template'
-     ),
-)
+urlpatterns = [
+
+    url(r'^admin/bulkimport/job/(?P<job_id>(\d+))/change/$', job_change, name='bulkimport_job_change'),
+    url(r'^admin/bulkimport/job/add/$', job_add),
+    url(r'^admin/bulkimport/job/(?P<job_id>(\d+))/change/delete/$', job_delete),
+    url(r'^admin/bulkimport/template/(?P<template_id>(\d+))/$', template_change),
+    url(r'^admin/bulkimport/job_from_template/(?P<template_id>(\d+))/$', template_new_import, name='bulkimport_new_from_template'),
+]

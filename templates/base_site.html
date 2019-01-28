@@ -1,10 +1,11 @@
 {% load i18n %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>{% block title %}Home{% endblock %} | Merriman River Group</title>
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
     <header class="header col-sm-12 border-b-2px">
       <div class="content-header text-color2">
          <div class="width-60pr left-logo">
-            <img src="{{ MEDIA_URL }}images/logo-mrg-1.png" class="pull-left"/>
+            <img src="{% static 'images/logo-mrg-1.png' %}" class="pull-left"/>
          </div>  
          <div class="width-40pr padding-t-9px right-link">
          <ul class="menu-top-link  margin-0px pull-right ">
@@ -28,7 +29,7 @@
     </div>
     <div class="container-bg">
       <div class="content-area padding-t-20px "> 
-              <img src="{{ MEDIA_URL }}images/step1.png" />
+              <img src="{% static 'images/step1.png' %}" />
             </div>
       <div class="content-area padding-b-20px"> 
                {% block content %}{% endblock %}
@@ -45,7 +46,7 @@
         </div>
         <div class="col-sm-2">
         <br/>
-          <a class="btn1 bold" href="{% url election_verify %}">Click Here</a>
+          <a class="btn1 bold" href="{% url 'election_verify' %}">Click Here</a>
         </div>
         <div class="col-sm-6 text-right about-bay">
           <div class="bold">About Merriman River </div>

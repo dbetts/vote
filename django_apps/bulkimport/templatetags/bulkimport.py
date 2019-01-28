@@ -15,7 +15,7 @@ def fetch_column_headers_from(parser, token):
     try:
         tag_name, data, as_text, output_name = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "usage: {% fetch_column_headers_from data as 'output' %}"
+        raise template.TemplateSyntaxError("usage: {% fetch_column_headers_from data as 'output' %}")
     return ColumnHeaders(data, output_name)
 
 class ColumnHeaders(template.Node):
@@ -42,7 +42,7 @@ def fetch_column_headers_from_model(parser, token):
     try:
         tag_name, model, as_text, output_name = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "usage: {% fetch_column_headers_from_model model as 'output' %}"
+        raise template.TemplateSyntaxError("usage: {% fetch_column_headers_from_model model as 'output' %}")
     return ModelColumnHeaders(model, output_name)
 
 class ModelColumnHeaders(template.Node):
@@ -76,7 +76,7 @@ def bulkimport_missing_fields(parser, token):
     try:
         tag_name, job, field_data = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "usage: {% bulkimport_missing_fields job field_data %}"
+        raise template.TemplateSyntaxError("usage: {% bulkimport_missing_fields job field_data %}")
     return MissingFields(job, field_data)
 
 class MissingFields(template.Node):

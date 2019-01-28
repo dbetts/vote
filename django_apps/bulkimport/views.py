@@ -1,8 +1,9 @@
-from django.http import HttpResponseRedirect, Http404, HttpResponse
-from django.shortcuts import get_object_or_404, render_to_response
+from django.http import Http404 #, HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
+from django.contrib import messages
 import subprocess
 
 try:
@@ -20,12 +21,13 @@ def render_to_admin(request, template, title, data, model, original=False, delet
     Helper method to correctly display admin like templates. Sets the variables that
     admin templates expect to see
     """
-    
+
+    # test for Meta class. If exists, add it.
     data['opts'] = model._meta
     data['admin'] = True
     data['title'] = title
     data['app_label'] = model._meta.app_label
-    data['is_popup'] = request.REQUEST.has_key('_popup')
+    data['is_popup'] = '_popup' in request
     data['change'] = True
     data['show_delete'] = delete
     data['save_as'] = False
@@ -45,10 +47,8 @@ def render_to_admin(request, template, title, data, model, original=False, delet
     
     for k,v in kwargs.items():
         data[k] = v
-    
-    return render_to_response(template, 
-                data, 
-                context_instance=RequestContext(request))
+
+    return render(request, template, data )
 
 
 @staff_member_required
@@ -61,7 +61,7 @@ def job_add(request):
         form = JobForm(request.POST, request.FILES)
         if form.is_valid():
             job = form.save()
-            return HttpResponseRedirect(reverse('bulkimport_job_change', args=[job.id]))
+            return redirect('bulkimport_job_change', job_id=job.id)
     else:
         form = JobForm()
         
@@ -78,9 +78,6 @@ def job_change(request, job_id):
     Gathers the mapping data after a base job has been created. Mapping data
     associates columns of the CSV with a model field.
     """
-    logging.debug("")
-    logging.debug("Starting job_change on line 82.")
-    logging.debug("")
 
     try:
         original = get_object_or_404(Job, pk=job_id)
@@ -124,8 +121,7 @@ def job_change(request, job_id):
             the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
                                        cwd=directory).pid
             
-            return HttpResponseRedirect(reverse('admin:bulkimport_job_change',
-                                        args=[job_id]))
+            return redirect('bulkimport_job_change', job_id=job_id)
 
     else:
         form = JobForm(instance=original)
@@ -165,40 +161,42 @@ def job_delete(request, job_id):
     but also the objects that our Job created and the associated
     log entries. 
     """
+
     original = get_object_or_404(Job, pk=job_id)
-        
+
     if request.method == "POST":
         cancel = request.POST.get('cancel', False)
         accept = request.POST.get('accept', False)
-        
+
         if cancel:
-            return HttpResponseRedirect(reverse('admin:bulkimport_job_change',
-                                        args=[job_id]))
-        
+            # 'admin:bulkimport_job_change' forces django to look for the reverse URL in the admin module ONLY
+            # 'bulkimport_job_change' tells django to look for the reverse URL in the local module FIRST
+            return redirect('bulkimport_job_change', job_id=job_id)
+
         if accept:
             #Actually do the delete, starting with any added objects
-            
+
             added_objects = Log.objects.filter(job=original)
-            
+
             for obj in added_objects:
                 try:
                     obj.content_type.get_object_for_this_type(pk=obj.remote_pk).delete()
                 except obj.content_type.model_class().DoesNotExist:
                     pass
-                
+
                 obj.delete()
-            
+
             original.delete()
-            
-            request.user.message_set.create(message="Your job was deleted successfully.")
-            
-            return HttpResponseRedirect(reverse('admin:bulkimport_job_changelist'))
+
+            messages.success(request, "Your job was deleted successfully.")
+
+            return redirect('admin:bulkimport_job_changelist')
     else:
         logs_count = Log.objects.filter(job=original).count()
         data = {'original':original, 'logs_count':logs_count}
-        
-        return render_to_admin(request, 
-            'admin/bulkimport/job_delete.html', 
+
+        return render_to_admin(request,
+            'admin/bulkimport/job_delete.html',
             'Delete Import Job',
             data,
             Job,
@@ -411,14 +409,13 @@ def template_change(request, template_id):
         save = request.POST.get('_save', False)
         
         if save_add_another:
-            return HttpResponseRedirect(reverse('admin:bulkimport_template_add'))
+            return redirect('admin:bulkimport_template_add')
         
         if save_continue:
-            return HttpResponseRedirect(reverse('admin:bulkimport_template_change'), 
-                                        args=[template_id])
+            return redirect('admin:bulkimport_template_change', template_id=template_id)
         
         if save:
-            return HttpResponseRedirect(reverse('admin:bulkimport_template_changelist'))
+            return redirect('admin:bulkimport_template_changelist')
             
             
     else:
@@ -483,8 +480,7 @@ def template_new_import(request, template_id):
             the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
                              cwd=directory).pid
                             
-            return HttpResponseRedirect(reverse('admin:bulkimport_job_change',
-                                        args=[f.id]))
+            return redirect('admin:bulkimport_job_change', job_id=f.id)
             
         
     else:

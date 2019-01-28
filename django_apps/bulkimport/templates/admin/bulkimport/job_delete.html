@@ -7,6 +7,7 @@
    {{ original.content_type }} objects. This action cannot be reversed.{% endif %}
    
    <form method="POST">
+    {% csrf_token %}
        <input type="submit" value="Yes, I'm sure" name="accept"/> or 
        <input type="submit" value="Cancel" name="cancel"/>
    </form>

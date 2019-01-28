@@ -1,7 +1,9 @@
+{% load static %}
+
 {% block jsfiles %}
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.3.2.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tablesorter.pager.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.3.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.tablesorter.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.tablesorter.pager.js' %}"></script>
 {% endblock %}
 
 {% block jsinit %}
