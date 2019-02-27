@@ -2,7 +2,7 @@ from django.http import Http404 #, HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
-# from django.core.urlresolvers import reverse
+
 from django.contrib import messages
 import subprocess
 
@@ -10,6 +10,7 @@ try:
     import json
 except ImportError:
     from django.utils import simplejson as json
+
 from django_apps.bulkimport.models import Job, Template, Log, Error
 from django_apps.bulkimport.forms import JobForm, TemplateForm, JobFormTemplate
 import logging
@@ -455,32 +456,40 @@ def template_new_import(request, template_id):
         form = JobFormTemplate( request.POST, request.FILES)
                         
         if form.is_valid():
-            f = form.save(commit=False) # Just return the instance of the Model, not a DB INSERT
-            f.content_type = template.content_type
-            f.mapping = template.mapping
-            f.mapping_through = template.mapping_through
-            f.required = template.required
-            f.unique = template.unique
-            f.status = 'progress'
-            f.template = template
-            f.save()
+            try:
+                f = form.save(commit=False) # Just return the instance of the Model, not a DB INSERT
+                f.content_type = template.content_type
+                f.mapping = template.mapping
+                f.mapping_through = template.mapping_through
+                f.required = template.required
+                f.unique = template.unique
+                f.status = 'progress'
+                f.template = template
+                f.save()
 
-            """
-                Start the import process from the cli so we can release the process.
-                threading.Thread does not work for some odd reason, so we have to do it this way.
-                We request the pid so the child process returns immediately while it works in
-                the background.
-            """
+                """
+                    Start the import process from the cli so we can release the process.
+                    threading.Thread does not work for some odd reason, so we have to do it this way.
+                    We request the pid so the child process returns immediately while it works in
+                    the background.
+                """
 
-            logging.debug("")
-            logging.debug("Form is a POST and is Valid (Line 479). We are calling the threaded import.py file.")
-            logging.debug("")
+                logging.debug("")
+                logging.debug("Form is a POST and is Valid (Line 479). We are calling the threaded import.py file.")
+                logging.debug("")
 
-            directory = "/home/merriman/django_apps/bulkimport/"
-            the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
-                             cwd=directory).pid
-                            
-            return redirect('admin:bulkimport_job_change', job_id=f.id)
+                directory = "/home/merriman/django_apps/bulkimport/"
+                the_pid = subprocess.Popen(["/usr/bin/python3", "import.py", str(f.id)],
+                                 cwd=directory).pid
+
+                # 'admin:bulkimport_job_change' forces django to look for the reverse URL in the admin module ONLY
+                # 'bulkimport_job_change' tells django to look for the reverse URL in the local module FIRST
+                return redirect('bulkimport_job_change', job_id=f.id)
+
+            except Exception as e:
+                print(e)
+        else:
+            print(form.errors)
             
         
     else:
