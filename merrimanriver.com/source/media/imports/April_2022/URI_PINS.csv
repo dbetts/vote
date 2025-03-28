@@ -1,0 +1,571 @@
+﻿Election,Ballot,First Name,Last Name,PIN,Address,Validation Start,Validation Number
+80,223,Graham,Forrester,8079011001,GFORRESTER@URI.EDU, - ,0013
+80,223,Rebecca,Levitan,8043381002,reblev@uri.edu, - ,0023
+80,223,Tashal,Brown,8078941003,tashal_brown@uri.edu, - ,0024
+80,223,William,Gordon,8085221004,WGORDON@URI.EDU, - ,0027
+80,223,Christine,Mok,8064521005,christine_mok@uri.edu, - ,0035
+80,223,Ann,Danis,8079541006,ANNDANIS@URI.EDU, - ,0047
+80,223,Jonathan,Puritz,8068051007,jpuritz@uri.edu, - ,0058
+80,223,Nekehia ,Quashie,8078861008,nekehia_quashie@uri.edu, - ,0094
+80,223,Catherine,Sama,8096351009,CSAMA@URI.EDU, - ,0104
+80,223,Judy,Stone,8083631010,iswim100im@uri.edu, - ,0107
+80,223,Theresa,Deeney,8046221011,tdeeney@uri.edu, - ,0115
+80,223,Marina,Ayrapetove,8089441012,ayrapetove@uri.edu, - ,0117
+80,223,Ashlee,Sackett ,8061561013,ashlee_viveiros@uri.edu, - ,0117
+80,223,Katharina,Quinlan,8074991014,kaquinlan@uri.edu, - ,0122
+80,223,Reza ,Abiri,8068171015,reza_abiri@uri.edu, - ,0137
+80,223,Joanna,Burkhardt,8003771016,JBURKHARDT@URI.EDU, - ,0149
+80,223,Christopher,Kincaid,8059011017,kincaid@uri.edu, - ,0150
+80,223,Robert,Van Horn,8056561018,rvanhorn@uri.edu, - ,0155
+80,223,Leon,Thiem,8029961019,lt@uri.edu, - ,0162
+80,223,Arthur,Mead,8008611020,ACMEAD@URI.EDU, - ,0180
+80,223,Cheryl,Foster,8029711021,CHERYLF@URI.EDU, - ,0189
+80,223,Tracey,Goncalves,8009581022,ttaveira@URI.EDU, - ,0194
+80,223,Furong,Xu,8089181023,fxu2007@uri.edu, - ,0198
+80,223,Sanjiv,Dugal,8090461024,sanjivdugal@uri.edu, - ,0204
+80,223,Jeremy,Collie,8092171025,JCOLLIE@URI.EDU, - ,0206
+80,223,Richard,Burroughs,8038581026,RBURROUGHS@URI.EDU, - ,0218
+80,223,David,Heskett,8084361027,DHESKETT@URI.EDU, - ,0220
+80,223,Angela,Slitt,8028171028,angela_slitt@uri.edu, - ,0231
+80,223,Alana,Bibeau,8022371029,abibeau@uri.edu, - ,0240
+80,223,Christine,Weinkauff Duranso,8096161030,cwduranso@uri.edu, - ,0250
+80,223,Jason,Kolbe,8056181031,jkolbe@uri.edu, - ,0298
+80,223,Margaret,Frazier,8012211032,MFRAZIER@URI.EDU, - ,0325
+80,223,Joseph S.,Rossi,8000521033,JSROSSI@URI.EDU, - ,0328
+80,223,Andrea,Paiva,8030791034,apaiva@uri.edu, - ,0329
+80,223,Nancy,Karraker,8051491035,NKARRAKER@URI.EDU, - ,0342
+80,223,Diane,Martins,8010681036,dcmartins@uri.edu, - ,0342
+80,223,Carole,Thornber,8001031037,thornber@uri.edu, - ,0343
+80,223,William,Krieger,8085551038,KRIEGER@URI.EDU, - ,0354
+80,223,Zahra,Meghani,8074791039,meghaniz@uri.edu, - ,0356
+80,223,Soheyb,Kouider,8024241040,soheyb@uri.edu, - ,0373
+80,223,Mary,MacDonald,8001251041,MARYMAC@URI.EDU, - ,0374
+80,223,Emily,Diamond,8048371042,diamond@uri.edu, - ,0381
+80,223,Amy,Stamates,8046951043,astamates@uri.edu, - ,0382
+80,223,Michael,Cerbo,8073811044,mcerbo@uri.edu, - ,0415
+80,223,Silvia,Pisabarro Sarrio,8083051045,spisabarro@uri.edu, - ,0420
+80,223,Mary,Healy Jamiel,8090161046,MARYHEALEY@URI.EDU, - ,0423
+80,223,Barbara,Kaskosz,8017511047,bkaskosz@uri.edu, - ,0425
+80,223,Manshu,Yang,8051931048,myang@uri.edu, - ,0453
+80,223,Alessandra,Adami,8048471049,aadami@uri.edu, - ,0504
+80,223,Denise,Coppa,8070421050,DCOPPA@URI.EDU, - ,0542
+80,223,Peter,Axtman,8084331051,paxtman@uri.edu, - ,0551
+80,223,Elaine,Grullon,8019961052,elaine_grullon@uri.edu, - ,0551
+80,223,Janelle,Couret,8093011053,ncouret@uri.edu, - ,0557
+80,223,Mayrai,Gindy,8021061054,mayraig@uri.edu, - ,0573
+80,223,Vincent,Petronio,8018611055,PETRONIO@URI.EDU, - ,0593
+80,223,Robert,Dufresne,8064831056,rldufresne@uri.edu, - ,0595
+80,223,Marc,Hutchison,8010191057,mlhutch@uri.edu, - ,0603
+80,223,Carrie-Atla,DeChamplain,8003531058,atladecham@uri.edu, - ,0610
+80,223,Bianca-Stela,Romaniuc- Boularand,8013171059,biancast@uri.edu, - ,0642
+80,223,Abdeltawab,Hendawi,8001271060,hendawi@uri.edu, - ,0657
+80,223,Dahianna,Lopez,8041851061,dahianna_lopez@uri.edu, - ,0676
+80,223,Harish R.,Sunak,8062391062,harishsunak@uri.edu, - ,0711
+80,223,Christopher,Briggs,8011341063,cbriggs@uri.edu, - ,0714
+80,223,Godi,Fischer,8077431064,fischer@uri.edu, - ,0718
+80,223,Mustafa,Kulenovic,8012851065,mkulenovic@uri.edu, - ,0719
+80,223,Fatemah,Akhlaghi,8011111066,fakhlaghi@uri.edu, - ,0732
+80,223,Nissane,Ghonem,8004391067,nghonem@uri.edu, - ,0747
+80,223,Sandy Jean,Hicks,8091331068,SJHICKS@URI.EDU, - ,0780
+80,223,Ami,Vyas,8013281069,avyas@uri.edu, - ,0795
+80,223,Aaron,Bradshaw,8059291070,abrads@uri.edu, - ,0822
+80,223,Nicholas,Corsano,8003521071,n_corsano@uri.edu, - ,0832
+80,223,Robert,Widell,8051091072,rwidell@uri.edu, - ,0843
+80,223,Christopher,Roman,8007571073,croman2@uri.edu, - ,0877
+80,223,Michael,Conti,8064631074,michaelconti@uri.edu, - ,0886
+80,223,Barbara,Costello,8058161075,COSTELLO@URI.EDU, - ,0911
+80,223,Jacqueline,Webb,8054951076,JACQUELINE_WEBB@URI.EDU, - ,0926
+80,223,Michael,Tammaro,8096531077,TAMMARO@URI.EDU, - ,0954
+80,223,Angela,Chiang,8080721078,achiang@uri.edu, - ,0969
+80,223,Timothy,Kenney,8029961079,timothy_kenney@uri.edu, - ,0982
+80,223,Ignacio ,Perez-Ibanez,8062521080,ignacioperez@uri.edu, - ,1026
+80,223,John,Pantalone,8089571081,JPANT@URI.EDU, - ,1064
+80,223,John,Dunn,8035151082,teddy@uri.edu, - ,1068
+80,223,Jody,Lisberger,8037641083,jlisberger@uri.edu, - ,1077
+80,223,Paul,Mastrangelo,8096081084,pmastrangelo@uri.edu, - ,1116
+80,223,Nancy,Eaton,8073711085,neaton@uri.edu, - ,1141
+80,223,Richard,McIntyre,8096291086,MCINTYRE@URI.EDU, - ,1142
+80,223,Ramdas,Kumaresan,8043431087,kumaresan2@uri.edu, - ,1155
+80,223,Mark,August,8001341088,mraugust@uri.edu, - ,1191
+80,223,Gerhard,Muller,8020591089,GMULLER@URI.EDU, - ,1212
+80,223,Yiping,Zhang,8023531090,yiping_zhang@uri.edu, - ,1248
+80,223,Meng ,Wei,8060931091,matt-wei@uri.edu, - ,1303
+80,223,Celia,MacDonnell,8024851092,CMAC@URI.EDU, - ,1348
+80,223,Catherine,DeCesare,8079981093,cdecesare@uri.edu, - ,1357
+80,223,Diane,Kern,8030741094,DKERN@URI.EDU, - ,1408
+80,223,Kathleen,Peno ,8031881095,KGUGS@URI.EDU, - ,1417
+80,223,Stephen,Kogut,8003111096,SKOGUT@URI.EDU, - ,1425
+80,223,Dhaval,Solanki,8017771097,dhaval_solanki@uri.edu, - ,1436
+80,223,Hamouda,Ghonem,8011541098,GHONEM@URI.EDU, - ,1457
+80,223,John,McLinden,8082591099,jmclinden@uri.edu, - ,1462
+80,223,Yang,Shen,8051311100,yshen@uri.edu, - ,1473
+80,223,Elizabeth,Laliberte,8046661101,elalib@uri.edu, - ,1486
+80,223,Jayne,Pawasaukas,8057621102,JAYNEP@URI.EDU, - ,1509
+80,223,James,Kinnie,8069431103,JKINNIE@URI.EDU, - ,1515
+80,223,Nathaniel,Mitkowski,8086491104,MITKOWSKI@URI.EDU, - ,1539
+80,223,Peg,Boyd,8067451105,mfboyd@uri.edu, - ,1555
+80,223,David,Rowley,8069191106,DROWLEY@URI.EDU, - ,1582
+80,223,Tatiana,Rynearson,8077781107,RYNEARSON@URI.EDU, - ,1592
+80,223,Yeqiao,Wang,8064671108,YQWANG@URI.EDU, - ,1595
+80,223,Lisa L.,Harlow,8090541109,LHARLOW@URI.EDU, - ,1599
+80,223,Robert,Schwegler,8093441110,rschweg@uri.edu, - ,1609
+80,223,Geoffrey,Greene,8077561111,ggreene@uri.edu, - ,1610
+80,223,Lisa,DiPippo,8071151112,LDIPIPPO@URI.EDU, - ,1615
+80,223,Angelo,Lucia,8042321113,alucia@uri.edu, - ,1626
+80,223,Daniel,Carpenter,8090611114,carpedone@URI.EDU, - ,1636
+80,223,Yan,Sun,8086391115,yansun@uri.edu, - ,1637
+80,223,David,Byrd,8031931116,DBYRD@URI.EDU, - ,1648
+80,223,Steven,Alm,8026381117,STEVEALM@URI.EDU, - ,1669
+80,223,Jaime,Ross,8043841118,jaime_ross@uri.edu, - ,1677
+80,223,Evelyn,Sterne,8043111119,STERNE@URI.EDU, - ,1706
+80,223,Lynne,Derbyshire,8077851120,DERBYSHIRE@URI.EDU, - ,1718
+80,223,Kathryn,Ramsey,8041581121,kramsey@uri.edu, - ,1727
+80,223,William,Green,8091581122,WAGRE@URI.EDU, - ,1729
+80,223,Margaret,Rogers,8030521123,MROGERS@URI.EDU, - ,1731
+80,223,Jie,Shen,8062061124,jie_shen@uri.edu, - ,1733
+80,223,Jennifer,Mammen,8011271125,jmammen@uri.edu, - ,1746
+80,223,Arijit,Bose,8014731126,bosea@uri.edu, - ,1770
+80,223,Kevin,McClure,8074951127,KMCCLURE@URI.EDU, - ,1777
+80,223,Philip,Datseris,8013391128,pdatseris@uri.edu, - ,1785
+80,223,Joshua,Gilmore,8022891129,joshua-gilmore@uri.edu, - ,1794
+80,223,Jean,Walton,8055091130,JWALTON@URI.EDU, - ,1798
+80,223,Bridget,Buxton,8010521131,babuxton@uri.edu, - ,1800
+80,223,David,Howard,8063341132,dthoward@uri.edu, - ,1806
+80,223,Arthur,Spivack,8029441133,spivack@uri.edu, - ,1811
+80,223,Kang Won,Lee,8057041134,leekw@uri.edu, - ,1820
+80,223,Patricia,Burbank,8029651135,pburbank@uri.edu, - ,1829
+80,223,Andree,Rathemacher,8087441136,ANDREE@URI.EDU, - ,1832
+80,223,Gordon,Dash,8062881137,GHDASH@URI.EDU, - ,1834
+80,223,Isaac,Ginis,8093971138,IGINIS@URI.EDU, - ,1841
+80,223,Leonard,Lardaro,8013291139,LARDARO@URI.EDU, - ,1843
+80,223,Margaret,Charpentier,8061811140,CHAPS@URI.EDU, - ,1849
+80,223,Erin,Davis,8002071141,emaile_davis@uri.edu, - ,1851
+80,223,Travis,Williams,8011381142,tdwilliams@uri.edu, - ,1882
+80,223,Anne,Hume,8017811143,alhume@uri.edu, - ,1890
+80,223,Susana,delosHeros,8092841144,SHEROS@URI.EDU, - ,1895
+80,223,Susan,Hannel,8019781145,shannel@uri.edu, - ,1896
+80,223,Susan,Brand (Trostle),8084691146,SUSANT@URI.EDU, - ,1906
+80,223,Linda,Lamont,8030411147,lamont@uri.edu, - ,1915
+80,223,Donna,Hughes,8025661148,DHUGHES@URI.EDU, - ,1917
+80,223,Mary,Cappello,8022551149,mcappello@uri.edu, - ,1918
+80,223,Brett,Feret,8073691150,BFERET@URI.EDU, - ,1927
+80,223,Eliane,Aberdam,8048621151,ELIANE@URI.EDU, - ,1928
+80,223,David,Taggart,8079081152,TAGGART@URI.EDU, - ,1934
+80,223,Su-Hsiu,Wu,8068171153,wusuri@uri.edu, - ,1939
+80,223,Paul,Florin,8060581154,PFLORIN@URI.EDU, - ,1955
+80,223,Susan Annu,Matthew,8079621155,annum@uri.edu, - ,1959
+80,223,Katherine,Petersson,8031661156,KPETERSSON@URI.EDU, - ,1963
+80,223,M. Peter,Nightingale,8024591157,nightingale@uri.edu, - ,1964
+80,223,Nicolai,Petro,8040691158,npetro@uri.edu, - ,1973
+80,223,Thais,Sao-Joao,8005831159,thais_sao-joao@uri.edu, - ,1979
+80,223,Arun,Shukla,8034691160,SHUKLAA@URI.EDU, - ,1984
+80,223,Jean-Yves,Herve,8045711161,jherve@uri.edu, - ,1985
+80,223,Brian,Maynard,8002161162,BMAYNARD@URI.EDU, - ,1996
+80,223,Norbert,Hedderich,8090261163,HEDDERICH@URI.EDU, - ,1997
+80,223,Richard,Brown,8040491164,RBROWN@URI.EDU, - ,1998
+80,223,Susan,Boatright-Horowitz,8085651165,subhsubh@uri.edu, - ,2017
+80,223,Claudia,Fallini,8011731166,cfallini@uri.edu, - ,2019
+80,223,Ian,Mather,8021871167,rodmather@uri.edu, - ,2029
+80,223,Shanette,Harris,8068971168,SHARRIS@URI.EDU, - ,2032
+80,223,Stephen,Barber,8056991169,smbarber@uri.edu, - ,2033
+80,223,Keith,Brown,8099381170,keith_brown@uri.edu, - ,2043
+80,223,Christopher,Hunter,8078481171,cdhunter@uri.edu, - ,2052
+80,223,Katherine,Branch ,8014071172,KBRANCH@URI.EDU, - ,2081
+80,223,Scott,McWilliams,8046591173,SRMCWILLIAMS@URI.EDU, - ,2085
+80,223,Lenore,Martin,8071221174,MARTIN@URI.EDU, - ,2087
+80,223,Elizabeth,Cooper,8016671175,ECOOPER@URI.EDU, - ,2088
+80,223,Yan,Ma,8087371176,YANMA@URI.EDU, - ,2089
+80,223,Britny,Brown,8036071177,brownbr@uri.edu, - ,2090
+80,223,George,Tsiatas,8010711178,georgetsiatas@uri.edu, - ,2093
+80,223,Patricia,Morokoff,8054031179,pmorokoff@uri.edu, - ,2105
+80,223,Kelly,Matson,8011421180,MATSON@URI.EDU, - ,2109
+80,223,Earline,Ferguson,8068481181,erferguson@uri.edu, - ,2114
+80,223,Thomas,Boving,8054841182,TBOVING@URI.EDU, - ,2128
+80,223,Bahram,Nassersharif,8014721183,nassersharif@uri.edu, - ,2128
+80,223,Mark,Robbins,8077351184,MARKROBB@URI.EDU, - ,2130
+80,223,Mark,Conley,8069711185,MCONLEY@URI.EDU, - ,2139
+80,223,Vanessa,Quainoo,8020091186,VQUAINOO@URI.EDU, - ,2146
+80,223,Paula,McGlasson,8042851187,PAULAM@URI.EDU, - ,2156
+80,223,Andrea,Rusnock,8015431188,rusnock@uri.edu, - ,2161
+80,223,Walter,Besio,8082671189,besio@uri.edu, - ,2170
+80,223,Brian,Heikes,8037431190,BHEIKES@URI.EDU, - ,2170
+80,223,Arthur,Gold,8016281191,AGOLD@URI.EDU, - ,2184
+80,223,William,Euler,8083511192,billeuler@uri.edu, - ,2191
+80,223,Phillip,Clark,8096581193,pgclark@uri.edu, - ,2199
+80,223,Meghan,McCormick,8047531194,meghanmccormick@uri.edu, - ,2199
+80,223,Marlene,Dufault,8010921195,mdufault@uri.edu, - ,2201
+80,223,Bridget,Ruemmele,8049711196,BRIDGETR@URI.EDU, - ,2202
+80,223,Damon,Rarick,8033831197,RARICK@URI.EDU, - ,2206
+80,223,Ryan,Trimm,8042461198,TRIMMRS@URI.EDU, - ,2221
+80,223,Farhad,Atash,8042841199,FATASH@URI.EDU, - ,2236
+80,223,Brooke,D'Aloisio,8006881200,brookeelise@uri.edu, - ,2237
+80,223,Sau-Lon James,Hu,8092691201,jameshu@uri.edu, - ,2239
+80,223,Linda,Welters,8078351202,LWELTERS@URI.EDU, - ,2257
+80,223,Alissa,Cox,8061651203,alibba@uri.edu, - ,2265
+80,223,Michael,Honhart,8086351204,mhonhart@uri.edu, - ,2266
+80,223,Lars,Erickson,8034361205,larserickson@uri.edu, - ,2269
+80,223,Dana,Kovarsky,8001161206,DANAK@URI.EDU, - ,2273
+80,223,Jyh-Hone,Wang,8091121207,JHWANG@URI.EDU, - ,2274
+80,223,Minsuk,Shim,8055431208,MSHIM@URI.EDU, - ,2280
+80,223,Sara,Sweetman,8024331209,sara_sweetman@uri.edu, - ,2290
+80,223,Gongqin,Sun,8078041210,GSUN@URI.EDU, - ,2293
+80,223,Roberta,King,8058881211,RKING@URI.EDU, - ,2301
+80,223,Geoffrey,Leatham,8039241212,leatham@URI.EDU, - ,2306
+80,223,Li,Wu,8041121213,liwuliwu@uri.edu, - ,2307
+80,223,Peter,Paton,8075321214,PPATON@URI.EDU, - ,2311
+80,223,Gene,Pollart,8037631215,GJPOLLART@URI.EDU, - ,2313
+80,223,Yu,Bi,8010931216,yu_bi@uri.edu, - ,2316
+80,223,Jimmie,Oxley,8011011217,JOXLEY@URI.EDU, - ,2320
+80,223,Seth,Macinko,8025791218,MACINKO@URI.EDU, - ,2331
+80,223,James,Smith,8009941219,jlsmith1@uri.edu, - ,2335
+80,223,Peter,Adamy,8086051220,ADAMY@URI.EDU, - ,2336
+80,223,Jing Jian,Xiao,8001721221,jjxiao@uri.edu, - ,2337
+80,223,David,Fastovsky,8042481222,DEFASTOV@URI.EDU, - ,2339
+80,223,Indrani,Mandal,8054181223,indrani_mandal@uri.edu, - ,2339
+80,223,Bradley,Wetherbee,8094351224,WETHERBEE@URI.EDU, - ,2340
+80,223,Clinton,Chichester III,8042161225,CHICHESTER@URI.EDU, - ,2345
+80,223,Mohammad,Faghri,8009691226,faghrim@uri.edu, - ,2359
+80,223,Judy,Van Wyk,8096161227,vellosa@uri.edu, - ,2360
+80,223,Robert,Thompson,8095091228,ROB@URI.EDU, - ,2364
+80,223,D. Randolph,Watts,8039291229,randywatts@uri.edu, - ,2365
+80,223,Leonard,Kahn,8050471230,lenkahn@uri.edu, - ,2367
+80,223,David,Nelson,8036381231,DNELSON@URI.EDU, - ,2368
+80,223,Valerie,Karno,8036821232,vkarno@uri.edu, - ,2370
+80,223,Michael,Rice,8070591233,mrice@uri.edu, - ,2375
+80,223,Marilyn,Barbour,8050941234,mbarbour@uri.edu, - ,2377
+80,223,Alison,Roberts,8052981235,aroberts@uri.edu, - ,2399
+80,223,David L.,Freeman,8062971236,dfreeman@uri.edu, - ,2402
+80,223,Alex,Hazera,8080181237,sofborder@uri.edu, - ,2413
+80,223,Manbir Singh,Sodhi,8034511238,SODHI@URI.EDU, - ,2428
+80,223,Marta,Gomez-Chiarri,8098261239,GOMEZCHI@URI.EDU, - ,2430
+80,223,Kristine,Bovy,8086281240,KBOVY@URI.EDU, - ,2455
+80,223,Jeffrey,Bratberg,8034871241,JEFBRATBERG@URI.EDU, - ,2458
+80,223,Mikyong,Kim,8092481242,mikyong@uri.edu, - ,2462
+80,223,Natacha,Thomas,8095771243,THOMAS@URI.EDU, - ,2463
+80,223,Carl-Ernst,Rousseau,8029261244,roussce@uri.edu, - ,2467
+80,223,James,Baglama,8058961245,JBAGLAMA@URI.EDU, - ,2477
+80,223,Steven,Irvine,8039921246,sirvine@uri.edu, - ,2483
+80,223,Mark,Comerford,8079481247,mark_comerford@uri.edu, - ,2496
+80,223,Rene,DeLaGarza,8014361248,rdelagarza@uri.edu, - ,2509
+80,223,Lutz,Hamel,8059361249,lutzhamel@uri.edu, - ,2518
+80,223,Lynda,Stein,8094061250,LARSTEIN@URI.EDU, - ,2524
+80,223,Amanda,Izenstark,8054391251,AMANDA@URI.EDU, - ,2577
+80,223,Carlos,Garcia-Quijano,8087911252,cgarciaquijano@uri.edu, - ,2579
+80,223,Nancy,Beausoleil,8070951253,nib22152@uri.edu, - ,2585
+80,223,Matthew,Kiesewetter,8097021254,mkiesewetter@uri.edu, - ,2596
+80,223,Xinyuan,Chen,8071821255,xchen14@uri.edu, - ,2632
+80,223,Amy,Correia,8084071256,correia@uri.edu, - ,2679
+80,223,Kristina,Ward,8019031257,KWARD@URI.EDU, - ,2691
+80,223,Patrick,Kelly,8059891258,pkelly@uri.edu, - ,2728
+80,223,Catherine,Morrison,8032131259,catemorrison@uri.edu, - ,2740
+80,223,LeAnne,Spino-Seijas,8067731260,spino@uri.edu, - ,2778
+80,223,Ongun,Hasbora,8056531261,ongun@uri.edu, - ,2779
+80,223,Gilberto,Marquez Illescas,8087011262,gmarquez@uri.edu, - ,2782
+80,223,Simona,Trandafir,8042641263,mtrandafir@uri.edu, - ,2815
+80,223,Harrison,Dekker,8040581264,hdekker@uri.edu, - ,2839
+80,223,Laura,Barnes,8012261265,laura_d_barnes@uri.edu, - ,2851
+80,223,W.E.Douglas,Creed,8075081266,DOUGLASCREED@URI.EDU, - ,3131
+80,223,Gary,Stoner,8004971267,gstoner@uri.edu, - ,3168
+80,223,Megan,Echevarria,8073481268,mertxe@uri.edu, - ,3192
+80,223,Crystal,Greene ,8086291269,crystal_greene@uri.edu, - ,3201
+80,223,Jason,Jaacks,8024251270,jasonjaacks@uri.edu, - ,3201
+80,223,Anne-Marie,Dupre,8026221271,amdupre@uri.edu, - ,3235
+80,223,Michelangelo,LaLuna,8039781272,LALUNA@URI.EDU, - ,3345
+80,223,Kathleen,McIntyre,8022851273,kamcintyre@uri.edu, - ,3522
+80,223,Roxanne,Beinart,8059541274,rbeinart@uri.edu, - ,3570
+80,223,Melanie,Brasher,8091581275,mbrasher@uri.edu, - ,3612
+80,223,Lehua,Ledbetter,8065181276,lehua@uri.edu, - ,3619
+80,223,Aaron,Ley,8088631277,ajley@uri.edu, - ,3620
+80,223,Skye,Leedahl,8006741278,skyeleedahl@uri.edu, - ,3695
+80,223,Ruitang,Deng,8059911279,DENGR@URI.EDU, - ,3735
+80,223,David,Bidwell,8026281280,dbidwell@uri.edu, - ,3750
+80,223,Mehdi,Hossain,8054061281,hossainm@uri.edu, - ,3760
+80,223,Neil,Greene,8093231282,neil_greene@uri.edu, - ,3771
+80,223,Seray,Ergene,8084241283,serayergene@uri.edu, - ,3820
+80,223,Erica,Estus,8084041284,elestus@mail.uri.edu, - ,3838
+80,223,Holly,Dunsworth,8033291285,holly_dunsworth@uri.edu , - ,3848
+80,223,Leslie,Kealhofer-Kemp,8033351286,lkealhofer@uri.edu, - ,3870
+80,223,Michael,Dinardi,8041031287,michael_dinardi@uri.edu, - ,3912
+80,223,Valerie,Maier Speredelozzi,8066021288,VALERIE@URI.EDU, - ,3922
+80,223,Rachel-Ann,Smith,8046271289,rachelsmith@uri.edu, - ,3923
+80,223,Carole,Petrie,8021921290,carol_petrie@uri.edu, - ,3950
+80,223,Clarissa,Carubin,8054551291,ccarubin@uri.edu, - ,3952
+80,223,Eric,Young,8079061292,ericyoung@uri.edu, - ,3952
+80,223,Ying,Chen,8034081293,ychen01@uri.edu, - ,3954
+80,223,Tanadej,Vechsuruck,8032271294,vechsuruck@uri.edu, - ,3975
+80,223,Ian,Reyes,8000011295,ianreyes@uri.edu, - ,4019
+80,223,Melva,Trevino Pena,8047381296,trevino@uri.edu, - ,4028
+80,223,Thomas,McGreevy,8092661297,tjmcg@uri.edu, - ,4031
+80,223,James,Ward,8002691298,jmward@uri.edu, - ,4046
+80,223,Nicole,Weiss,8079891299,nicole_weiss@uri.edu, - ,4067
+80,223,Sarah,Daly VanOot,8089841300,sarahdaly@uri.edu, - ,4134
+80,223,Austin,Becker,8033431301,abecker@uri.edu, - ,4177
+80,223,Aisling,Caffrey,8023281302,aisling.caffrey@uri.edu, - ,4218
+80,223,Christine,Eisenhower,8053861303,ceisenhower@uri.edu, - ,4221
+80,223,Brendan,Mark,8019761304,skipmark@uri.edu, - ,4270
+80,223,Thomas,Sproul,8097391305,sproul@uri.edu, - ,4287
+80,223,Karina,Lammert,8057331306,karina_lammert@uri.edu, - ,4317
+80,223,Shanna,Pearson-Merkowitz,8089721307,shanna_pearson@uri.edu, - ,4325
+80,223,Jessica,Alber,8094241308,jalber@uri.edu, - ,4416
+80,223,Eske,Mollgaard,8018041309,emollgaard@uri.edu, - ,4460
+80,223,Madhav,Sharma,8062491310,madhav_sharma@uri.edu, - ,4462
+80,223,Sue ,Adams,8065831311,suekadams@uri.edu, - ,4543
+80,223,Kimberly,Page,8044031312,kimberly_page@uri.edu, - ,4593
+80,223,Michelle,Flippin,8074941313,mflippin@uri.edu, - ,4625
+80,223,Karen,deBruin,8067511314,debruin@uri.edu, - ,4746
+80,223,Resit,Sendag,8013911315,SENDAG@URI.EDU, - ,4757
+80,223,Jay,Fogleman,8059041316,fogleman@uri.edu, - ,4770
+80,223,Brett,Still,8021491317,bstill@uri.edu, - ,4781
+80,223,Virginia,Lemay,8083281318,glemay@uri.edu, - ,4787
+80,223,Kristin,Magan,8089261319,kcoreymagan@uri.edu, - ,4816
+80,223,Joan,Dugas,8056731320,jrdugas@uri.edu , - ,4826
+80,223,Frank,"Romanelli, Jr.",8054151321,fromanelli@uri.edu, - ,4934
+80,223,Saleh,Allababidi,8008891322,sallababidi@uri.edu, - ,4950
+80,223,Nicole,Hersey,8013071323,ndhtennis@uri.edu, - ,4998
+80,223,Rebecca,Millsop,8035081324,rmillsop@uri.edu, - ,5010
+80,223,Mark,Greenwood,8048991325,markgreenwood@uri.edu, - ,5076
+80,223,Lauren,Mandel,8090971326,lauren_mandel@uri.edu, - ,5099
+80,223,Michael,Barrus,8018581327,barrus@uri.edu, - ,5105
+80,223,Dorothy,Skierkowski,8037131328,dskierkowski@uri.edu, - ,5132
+80,223,Erin,Denette,8032731329,edenette@uri.edu, - ,5147
+80,223,Sunshine,Menezes,8032881330,sunshine@uri.edu, - ,5149
+80,223,M. Reza,Hashemi ,8072741331,reza_hashemi@uri.edu, - ,5173
+80,223,Robyn,Wojcek,8095011332,rwojeck@uri.edu, - ,5184
+80,223,Mahtab,Kouhizadeh,8086111333,mkouhizadeh@uri.edu, - ,5210
+80,223,Julie,Keller,8033571334,jckeller@uri.edu, - ,5220
+80,223,Maria,Donnelly,8091871335,madon@uri.edu, - ,5224
+80,223,Christopher,Lane,8099391336,clane@uri.edu, - ,5226
+80,223,Genoa,Shepley,8051411337,genoa_shepley@uri.edu, - ,5248
+80,223,Soni,Pradhanang,8018111338,spradhanang@uri.edu, - ,5249
+80,223,Thomas,Bella,8072091339,tombella@uri.edu, - ,5273
+80,223,Kendall,Moore,8075011340,kendallmoore@uri.edu, - ,5348
+80,223,Amy,Dunkle,8046931341,amydunkle@uri.edu, - ,5366
+80,223,Mary,Moen,8006371342,mary_moen@uri.edu, - ,5387
+80,223,Andrew,Cary,8054351343,andrew_cary@uri.edu , - ,5402
+80,223,Ping,Xu,8071041344,pingxu@uri.edu, - ,5446
+80,223,Christine,McGrane,8082451345,cmcgrane@uri.edu, - ,5459
+80,223,Christian,Gonzales,8021191346,cgonzal@uri.edu, - ,5494
+80,223,Richard,Sheridan,8023481347,rsheridan@uri.edu, - ,5498
+80,223,Peter,Covino,8013881348,petercovino@uri.edu, - ,5557
+80,223,Robin,Schipritt,8085011349,rschipritt@uri.edu, - ,5579
+80,223,Theodore,Walls,8045311350,WALLS@URI.EDU, - ,5631
+80,223,Jill,Doerner,8042611351,jdoerner@uri.edu, - ,5694
+80,223,Phyllis,Penhallow,8092751352,pcpen@uri.edu, - ,5725
+80,223,Anita,Jacobson,8024631353,anitaj@uri.edu, - ,5729
+80,223,Rachel,DiCioccio,8081311354,DICIOCCIO@URI.EDU, - ,5733
+80,223,Rebecca,Romanow,8078671355,rromanow@uri.edu, - ,5757
+80,223,Kathleen,Torrens,8009281356,KMTORRENS@URI.EDU, - ,5758
+80,223,Evan,Preisser,8091261357,preisser@URI.EDU, - ,5775
+80,223,Disa,Hatfield,8052171358,dhatfield@uri.edu, - ,5804
+80,223,Cornelis,deGroot,8038251359,degrootc@uri.edu, - ,5840
+80,223,Emily,Lynch,8083051360,emilylynch@uri.edu, - ,5887
+80,223,Maya,Vadiveloo,8053181361,maya_vadiveloo@uri.edu, - ,5962
+80,223,Hyunjin,Kim,8004791362,hkimed@uri.edu, - ,5976
+80,223,Emilija,Djurdjevic,8089661363,edjurdjevic@uri.edu, - ,6024
+80,223,Michael,Antosh,8045881364,mantosh@uri.edu, - ,6026
+80,223,Meredith,Boyajian,8057481365,mboyajian524@uri.edu, - ,6035
+80,223,Kerry,La Plante ,8010111366,kerrylaplante@uri.edu, - ,6050
+80,223,Joanne,Mundorf,8047171367,joannemu@uri.edu, - ,6065
+80,223,Alan,Verskin,8037031368,verskin@uri.edu, - ,6071
+80,223,Martha,Rojas,8072281369,martharojas@uri.edu, - ,6103
+80,223,Jodi,Camberg,8090651370,cambergj@uri.edu, - ,6131
+80,223,Tao,Wei,8054481371,tao_wei@uri.edu, - ,6133
+80,223,Todd,Brothers,8034271372,tbrothers@uri.edu, - ,6143
+80,223,Daniel,Carrigg,8069231373,carrigd@uri.edu, - ,6161
+80,223,Ying,Zhang,8019371374,yingzhang@uri.edu, - ,6177
+80,223,Stephen,Atlas,8004141375,satlas@uri.edu, - ,6188
+80,223,Erica,Liebermann,8065811376,eliebermann@uri.edu, - ,6209
+80,223,Cynthia,Brittain,8097611377,cbrittain@uri.edu, - ,6224
+80,223,Laura,Meyerson,8001061378,lameyerson@uri.edu, - ,6231
+80,223,Dara,Schniederjans,8075751379,schniederjans@uri.edu, - ,6235
+80,223,David,Faflik,8096211380,faflik@uri.edu, - ,6246
+80,223,Liam,Malloy,8024561381,lmalloy@uri.edu, - ,6247
+80,223,Koray,Ozpolat,8019811382,koray@uri.edu, - ,6248
+80,223,Christopher,Parker,8016591383,cmparker@uri.edu, - ,6260
+80,223,Christine,Zozula,8003841384,zozula@uri.edu, - ,6261
+80,223,Hollie,Putnam,8034331385,hputnam@uri.edu, - ,6295
+80,223,Christopher ,Thawley,8076271386,cthawley@uri.edu, - ,6357
+80,223,Todd,Guilfoos,8043651387,guilfoos@uri.edu, - ,6386
+80,223,Jaime,Palter,8047761388,jpalter@uri.edu, - ,6403
+80,223,Coleen,Suckling,8033751389,coleensuckling@uri.edu, - ,6446
+80,223,Gavino,Puggioni,8011191390,gpuggioni@uri.edu, - ,6476
+80,223,Nicole,Asal,8060361391,nicole_asal@uri.edu, - ,6503
+80,223,Sarah,Larson,8061431392,sarahlarson@uri.edu, - ,6516
+80,223,Martha,Waitkun,8032551393,MWAITKUN@URI.EDU, - ,6520
+80,223,Heather ,Johnson,8076331394,heather_johnson@uri.edu, - ,6524
+80,223,Derek,Nikitas,8073591395,nikitas@uri.edu, - ,6608
+80,223,Sarah,Eron,8018871396,sarah_eron@uri.edu, - ,6612
+80,223,Elizabeth,Mendenhall,8069291397,mendenhall@uri.edu, - ,6618
+80,223,Qingyu (Kitty),Yang,8028691398,kittyyang@uri.edu, - ,6626
+80,223,Allison,Harper,8029861399,allisonharper@uri.edu, - ,6652
+80,223,Hillary,Leonard,8045831400,hleonard@uri.edu, - ,6702
+80,223,Daniel,Munksgaard,8002781401,dmunksgaard@uri.edu , - ,6713
+80,223,William,Kinnersley,8024771402,billk@uri.edu, - ,6716
+80,223,Bryan,Dewsbury,8026911403,dewsbury@uri.edu, - ,6722
+80,223,Tess,Booth,8037061404,tess_booth@uri.edu, - ,6741
+80,223,Kyle,Kusz,8044041405,kkusz@uri.edu, - ,6752
+80,223,Hilda,Llorens,8061441406,hilda_llorens@uri.edu, - ,6772
+80,223,Brian,Gallagher,8086091407,btg@uri.edu, - ,6818
+80,223,Vandana,Jain,8080661408,vjain@uri.edu, - ,6827
+80,223,Deyu,Li,8038491409,deyulie@uri.edu, - ,6832
+80,223,Regina,Bell ,8084331410,rbell@uri.edu, - ,6835
+80,223,Matthew,Ramsey,8020311411,mramsey@uri.edu, - ,6866
+80,223,Erik,Loomis,8055961412,eloomis@uri.edu, - ,6871
+80,223,Hans,Saint-Eloi Cadely,8040781413,hsainteloicadely@uri.edu, - ,6876
+80,223,Rosaria,Pisa,8069131414,rpisa@uri.edu, - ,6882
+80,223,Susanne,Menden-Deuer,8013341415,smenden@uri.edu, - ,6901
+80,223,Bethany,Jenkins,8006851416,BJENKINS@URI.EDU, - ,6902
+80,223,Peter,Larsen,8051891417,PLARSEN@URI.EDU, - ,6914
+80,223,Steven,Cohen,8028461418,steven_cohen@uri.edu, - ,6916
+80,223,Shingo,Goto,8073231419,shingto_goto@uri.edu, - ,6924
+80,223,Jessica,Frazier,8086861420,jmfrazier@uri.edu, - ,6930
+80,223,Saheli,Goswami,8046961421,sgoswami@uri.edu, - ,6955
+80,223,Diane,Ditomasso ,8019471422,dditomasso@uri.edu, - ,6958
+80,223,Jessica,Strubel,8069241423,jessica-strubel@uri.edu, - ,6964
+80,223,Natalie,Sabik,8088811424,sabik@uri.edu, - ,6979
+80,223,Andrew,Davies,8082781425,davies@uri.edu, - ,6989
+80,223,Sean,Rogers,8045751426,rogers@uri.edu, - ,6990
+80,223,Amelia,Moore,8070991427,ameliamoore@uri.edu, - ,7008
+80,223,Mingxi,Zhou,8004681428,mzhou@uri.edu, - ,7012
+80,223,Alexander,McDonough,8067851429,ammcdonough@uri.edu, - ,7023
+80,223,Audrey,Cardany,8068221430,audreyberger1@uri.edu, - ,7046
+80,223,Dugan,Hayes,8013411431,dugan@uri.edu, - ,7086
+80,223,Lisa,Tom,8017311432,lisa_tom@uri.edu, - ,7136
+80,223,Silvana,Ngo,8076971433,silvana_ngo@uri.edu, - ,7161
+80,223,J. Jennifer,Jones,8066911434,jjjones@uri.edu, - ,7174
+80,223,Mary,Greaney,8096821435,MGREANEY@URI.EDU, - ,7204
+80,223,Susan,D'Andrea,8013341436,sedandrea@uri.edu, - ,7245
+80,223,Shawna,Iula,8045491437,siula@uri.edu, - ,7262
+80,223,Mark,Dionne,8004381438,mdionne@uri.edu, - ,7293
+80,223,Shahla,Yekta,8004931439,shahla_yekta@uri.edu, - ,7345
+80,223,Xiaoyan,Hu,8034581440,xiaoyan_hu@uri.edu, - ,7349
+80,223,Wayne ,He,8029131441,waynewenchaohe@uri.edu, - ,7353
+80,223,Andre,Van Tonder,8093271442,andreauri2000@uri.edu, - ,7359
+80,223,Marcus,Nevius,8073871443,mpnevius@uri.edu, - ,7364
+80,223,Karl,Aspelund,8089111444,aspelund@uri.edu, - ,7366
+80,223,Catherine,Semnoski,8074161445,csemnoski@uri.edu, - ,7383
+80,223,Gerard,Jalette,8078251446,jalette@uri.edu, - ,7393
+80,223,Tracy,Proulx,8051331447,proulx@uri.edu, - ,7409
+80,223,Ann-Marie,Sacco,8047231448,amsacco@uri.edu, - ,7416
+80,223,Kathy,Quick,8024561449,kathy_quick@uri.edu, - ,7418
+80,223,Brian,Walsh,8097941450,brian_walsh@uri.edu, - ,7433
+80,223,David,Mitchell,8061391451,david_mitchell@uri.edu, - ,7451
+80,223,Michelle,Peach Lang,8066231452,michelle_peach@uri.edu, - ,7469
+80,223,Alicia,Vaandering,8093541453,avaandering@uri.edu, - ,7472
+80,223,Niko,Tracksdorf,8065161454,tracksdorf@uri.edu, - ,7478
+80,223,Scott,Kushner,8066181455,scottkushner@uri.edu, - ,7522
+80,223,Miriam,Reumann,8021891456,MREUMANN@URI.EDU, - ,7538
+80,223,Jane,Buxton,8007581457,jabuxton@uri.edu, - ,7543
+80,223,Ji Hye,Kang,8019611458,jhkang@uri.edu, - ,7546
+80,223,Georges,Tsafack Kemassong,8026571459,gtsafack@uri.edu, - ,7564
+80,223,Niall,Howlett,8032941460,nhowlett@uri.edu, - ,7579
+80,223,Craig,Nichols,8045081461,nichols@uri.edu, - ,7595
+80,223,Benjamin,Anderson,8068631462,seaver@uri.edu, - ,7632
+80,223,James,Haile,8064011463,james_haile@uri.edu, - ,7643
+80,223,Ellen,Flannery-Schroeder,8075341464,EFSCHROEDER@URI.EDU, - ,7650
+80,223,Vasilije,Perovic,8077781465,perovic@uri.edu, - ,7680
+80,223,Justin,Wyatt,8045761466,justinw@uri.edu, - ,7683
+80,223,Jacqueline,Sparks,8025771467,JSPARKS@URI.EDU, - ,7712
+80,223,John,Taylor,8011451468,jr_taylor@uri.edu, - ,7724
+80,223,Jason,Dwyer,8054981469,jason_dwyer@uri.edu, - ,7751
+80,223,Dawn,Cardace,8060751470,cardace@uri.edu, - ,7849
+80,223,Sarah,Amin,8010611471,sarah_amin@uri.edu, - ,7868
+80,223,Thomas,Sharland,8093181472,tsharland@uri.edu, - ,7878
+80,223,John,Beliveau,8071081473,beliveau@uri.edu, - ,7895
+80,223,Feihong,Xia,8082381474,jerryxia@uri.edu, - ,7907
+80,223,Steven,Gregory,8000731475,stgregory@uri.edu, - ,7974
+80,223,Nancy,Forster-Holt,8001451476,forsterholt@uri.edu, - ,7979
+80,223,Leah,Heilig,8067891477,leah_heilig@uri.edu, - ,8053
+80,223,George,Dombi,8029461478,gdombi@uri.edu, - ,8060
+80,223,Madison,Jones,8092861479,madisonjones@uri.edu, - ,8097
+80,223,Amanda,Chichester,8039871480,adeangel@uri.edu, - ,8126
+80,223,Ashlea,Rundlett,8024891481,arundlett@uri.edu, - ,8143
+80,223,Karen,Sweeting,8013461482,ksweeting@uri.edu, - ,8204
+80,223,Araceli,Medina-Bonifant,8038321483,BONIFANT@.URI.EDU, - ,8217
+80,223,Stephanie,Forschner-Dancause,8096581484,sdancause@uri.edu, - ,8230
+80,223,Caitlin,Nash,8083241485,caitlin_nash@uri.edu, - ,8239
+80,223,Roberta,Newell,8071571486,roberta_newell@uri.edu, - ,8242
+80,223,Nina,Eichacker,8097571487,nina_eichacker@uri.edu, - ,8252
+80,223,Stephanie,West-Puckett,8025031488,stephwp@uri.edu, - ,8253
+80,223,Carolyn,Betensky,8026151489,betensky@uri.edu, - ,8271
+80,223,Rainer,Lohmann,8054231490,rlohmann@uri.edu, - ,8281
+80,223,Gretchen,Macht,8065721491,macht@uri.edu, - ,8320
+80,223,Ashish,Chadha,8011961492,ashishw@uri.edu, - ,8325
+80,223,Ryan,Chapman,8080931493,rmchapman@uri.edu, - ,8350
+80,223,Ernest,Dupuis,8087781494,edupuis@uri.edu, - ,8389
+80,223,Haibo,He,8004241495,haibohe@uri.edu, - ,8400
+80,223,Kaushallya,Adhikari,8080951496,kadhikari@uri.edu, - ,8417
+80,223,Julia,Lovett,8048951497,JALOVETT@URI.EDU, - ,8422
+80,223,Jessica,Adams,8025411498,jessica_a_adams@uri.edu, - ,8459
+80,223,Jeremiah,Dyehouse,8097561499,JDYEHOUSE@URI.EDU, - ,8459
+80,223,Emmet,Goods,8088631500,emmettgoods@uri.edu, - ,8518
+80,223,Douglas,Reed,8072681501,douglassreed@uri.edu, - ,8531
+80,223,Navindra,Seeram,8070461502,nseeram@uri.edu, - ,8532
+80,223,Lora,Van Uffelen,8043011503,loravu@uri.edu, - ,8546
+80,223,Ellen,McGough,8097621504,ellen_mcgough@uri.edu, - ,8558
+80,223,Hui,Lin,8007591505,huilin@uri.edu, - ,8575
+80,223,Lisa,Cohen ,8073081506,lisacohen@uri.edu, - ,8583
+80,223,Karen,Jennings,8028491507,k_jennings@uri.edu, - ,8587
+80,223,Yu,Wu,8073481508,yu_wu@uri.edu, - ,8611
+80,223,Melissa,Nicholas,8084021509,mvnicholas@uri.edu, - ,8613
+80,223,Smita,Ramnarain,8080771510,sramnarain@uri.edu, - ,8614
+80,223,Rachel,Schwartz,8087881511,rsschwartz@uri.edu, - ,8615
+80,223,Mary,Cloud,8011921512,mcloud@uri.edu, - ,8633
+80,223,Patrick,Baur,8052081513, pbaur@uri.edu, - ,8673
+80,223,Rachel,Walshe,8015011514,rtwalshe@uri.edu, - ,8708
+80,223,Christopher,Hemme,8002871515,hemmecl@uri.edu, - ,8726
+80,223,Kayon,Murray,8043391516,k_murray@uri.edu, - ,8827
+80,223,Lisa,Weyandt,8044751517,LISAWEYANDT@URI.EDU, - ,8829
+80,223,Noah,Daniels,8047131518,noah_daniels@uri.edu, - ,8860
+80,223,Daniel,Roxbury,8004171519,roxbury@uri.edu, - ,8862
+80,223,Mallory,Flowers,8099711520,flowers@uri.edu, - ,8885
+80,223,Ryan,Poling-Skutvik,8067151521,yanps@uri.edu, - ,8901
+80,223,Rabia,Hos,8027811522,rabiahos@uri.edu, - ,8906
+80,223,Brian,Gerber,8089931523,bgerber@uri.edu, - ,8913
+80,223,Eugen,Trandafir,8049631524,etrandafir@uri.edu, - ,8917
+80,223,Cynthia,Thomas ,8045731525,blanthorne@uri.edu, - ,8924
+80,223,Karen,Morse,8012251526,kwmorse@uri.edu, - ,8996
+80,223,Brietta ,Oaks,8098781527,boaks@uri.edu, - ,9008
+80,223,Michael,Ice,8047291528,michael_ice@uri.edu, - ,9025
+80,223,Christie,Ward-Ritacco,8068111529,christieward@uri.edu, - ,9034
+80,223,Perri,Leviss,8034531530,pleviss@uri.edu, - ,9047
+80,223,Bing,Mu,8036951531,mubing@uri.edu, - ,9132
+80,223,Sarah,Feldstein-Ewing,8029491532,feldsteinewing@uri.edu, - ,9177
+80,223,Richard,Armstrong,8088091533,rarm26@uri.edu, - ,9184
+80,223,Mark,Hartman,8059831534,mark_hartman@uri.edu, - ,9188
+80,223,Lorenzo,Mosca,8039551535,lorenzo@uri.edu, - ,9217
+80,223,Vilde,Aaslid,8045921536,AASLID@URI.EDU, - ,9266
+80,223,Ashley,Buchanan,8005941537,buchanan@uri.edu, - ,9270
+80,223,Rebecca,Robinson,8070031538,rebecca_r@uri.edu, - ,9273
+80,223,Chelsea,Farrell,8090121539,c_farrell@uri.edu, - ,9287
+80,223,Amy,D'Agata,8040321540,amydagata@uri.edu, - ,9340
+80,223,Christopher,Henderson,8025091541,cwhenderson@uri.edu, - ,9363
+80,223,Abraham,Kovoor,8027781542,abekovoor@uri.edu, - ,9378
+80,223,Jiangping,Cai,8061141543,jiangping_cai@uri.edu, - ,9387
+80,223,David,Gilliland,8048341544,david_gilliland@uri.edu, - ,9388
+80,223,Paolo,Stegagno,8096831545,pstegagno@uri.edu, - ,9452
+80,223,Hanan,Mogawer,8059711546,hanan_mogawer@uri.edu, - ,9458
+80,223,Ximena,Sevilla Benevides,8073231547,sevilla@uri.edu, - ,9522
+80,223,Robert,Coyne,8090581548,robcoyne@uri.edu, - ,9529
+80,223,Katie,Amaral,8082051549,katie_amaral@uri.edu, - ,9558
+80,223,Prince,Allotey,8043541550,prince_allotey@uri.edu, - ,9579
+80,223,Tolani,Olugundoye,8048481551,tolagundoye@uri.edu, - ,9621
+80,223,Brian,Plouffe,8048821552,bplouffe@uri.edu, - ,9664
+80,223,Michelle,Palmer,8090721553,michelle_palmer@uri.edu, - ,9708
+80,223,Kelton,McMahon,8093831554,kelton_mcmahon@uri.edu, - ,9719
+80,223,Matthew,Hodler,8045251555,matthew_hodler@uri.edu, - ,9727
+80,223,Donna,Gamache-Griffiths,8072361556,donnagg@uri.edu, - ,9737
+80,223,Cecilia,Deschenes,8043411557,ceci_deschenes@uri.edu, - ,9739
+80,223,M. Shane,Tutwiler,8089641558,shane_tutwiler@uri.edu, - ,9796
+80,223,Izabela,Ciesielska-Wrobel,8086981559,iciewrobel@uri.edu, - ,9801
+80,223,Qi,Liu,8008961560,qiliu@uri.edu, - ,9813
+80,223,Tracy Liz,Miller,8047421561,tracylizmiller@uri.edu, - ,9834
+80,223,Megan,Parry,8043261562,mmparry@uri.edu, - ,9852
+80,223,Krishna Kumar,Venkatasubramanian,8045291563,krish@uri.edu, - ,9862
+80,223,Catherine,John,8061861564,catherine_john@uri.edu, - ,9871
+80,223,Mehmet,Yalcin,8030881565,mgyalcin@uri.edu, - ,9879
+80,223,Kristine,Cabral,8090471566,CABRAL@URI.EDU, - ,9909
+80,223,Natalie,Pifer,8044081567,npifer@uri.edu, - ,9921
+80,223,Emily,Clapham,8001051568,eclapham@uri.edu, - ,9945
+80,223,Ayse,Sharland,8017341569,aysharland@uri.edu, - ,9945
+80,223,Norman,Rusin,8090761570,normanrusin@uri.edu, - ,9948

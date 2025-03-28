@@ -1,0 +1,242 @@
+Election,Ballot,First Name,Last Name,PIN,Address,Validation Start,Validation Number
+45,69,Lisa,Aguiar,2090032101,20 Mary Avenue,  ,2511
+45,69,George,Almeida,2099817102,30 Cedar Drive,  ,3489
+45,69,James,Anderson,2096872103,67 Pine Crest Drive,  ,3137
+45,69,Doreen,Anell,2099315104,1 Vineland Avenue,  ,1353
+45,69,Rocio,Aquino,2094917105,10 Shafter Street,  ,9204
+45,69,Thony,Augustine,2096699106,146 Rutland Street,  ,1503
+45,69,Walter,Barr,2094818107,25 Garfield Avenue,  ,9683
+45,69,Aaron,Bouchard,2090514108,37 Cushing Street,  ,3579
+45,69,Danith,Burton,2096354109,212 Sandy Land,  ,8829
+45,69,Frank,Butler,2091133110,3 Westwood Road,  ,4633
+45,69,Cathleen,Cabral,2097279111,31 Arthur Avenue,  ,5556
+45,69,Mary Jane ,Campbell,2095545112,186 Warren Avenue,  ,6072
+45,69,Carolyn,Carty,2093297113,13 Orchard Street,  ,8712
+45,69,Robert,Casavant,2098207114,132 Dorr Avenue,  ,8122
+45,69,Stephen,Checrallah,2096210115,78 Bullocks Point Avenue,  ,1284
+45,69,Patricia,Clark-Chanthavong,2095996116,87 Walnut Street,  ,4589
+45,69,Shelly,Corbishley,2097721117,235 Providence Avenue,  ,2299
+45,69,Terry,Dallaire,2090348118,106 Touissett Road,  ,887
+45,69,Lorianne,Davenport,2092267119,67 Pine Crest Drive,  ,3703
+45,69,Jessica,Davide,2091481120,55 Circuit Drive,  ,1248
+45,69,Jose,De Los Santos,2091563121,308 Indiana Avenue,  ,6763
+45,69,Olivia,DeCosta,2093305122,126 Central Avenue,  ,1748
+45,69,Patricia,DeCosta,2095384123,12 Coombs Street,  ,2716
+45,69,Edwin,DeRose,2097198124,211 Carleton Street,  ,5459
+45,69,Angela,Dias,2098601125,147 Linwood Avenue,  ,7187
+45,69,Luciana,Dibiasio,2095995126,245 Eastwood Avenue,  ,1118
+45,69,Carl,Dufault,2090133127,45 Haverhill Avenue,  ,3006
+45,69,Raul,Encarnacion,2093512128,35 Raphael Avenue,  ,2413
+45,69,Joanny ,Fernandez,2091222129,200 Eastwood Avenue,  ,6457
+45,69,Aline,Foster,2093990130,533 Chopmist Hill Road,  ,9536
+45,69,Donald,Gagnon,2098798131,40 Michael Drive,  ,1721
+45,69,Nicolas,Garakep,2099637132,12 Rollingwood Ct,  ,4209
+45,69,Emily,Garcia,2096878133,94 Pidge Avenue,  ,8531
+45,69,Deborah,Garner,2097795134,21 Lindy Avenue,  ,9578
+45,69,Roland,Gingras,2096093135,44 Lydick Avenue,  ,7493
+45,69,Charlene,Gomes,2093282136,51 Grosvenor Avenue,  ,1407
+45,69,Jonathan,Gonzalez,2098586137,298 Pontiac Avenue,  ,9386
+45,69,Manuel,Gouveia,2095671138,230 Alabama Avenue,  ,905
+45,69,Mario ,Ibanez,2091082139,PO Box 6262,  ,368
+45,69,Hala,Issa,2097224140,PO Box 16511,  ,7397
+45,69,Joshua,Jefferis,2092141141,19 Grand View Street,  ,7857
+45,69,Juana,Jesus,2093240142,7 Norfolk Street,  ,6161
+45,69,John,Kaicher,2092893143,14 North County Street,  ,5224
+45,69,Joanne,Kelly,2093749144,47 Ivy Street,  ,5377
+45,69,Thomas,King,2093837145,63 Lenox Avenue,  ,1308
+45,69,Melissa ,Lemos,2094957146,50 Circuit Drive,  ,4776
+45,69,Dimitry,Leone,2096535147,568 Smithfield Avenue,  ,4522
+45,69,Nicolas,Lombardo,2090294148,73 Fenner Avenue,  ,3137
+45,69,Stephen,Maine,2090528149,48 Sumner Avenue,  ,3815
+45,69,John,Mancini,2092381150,1357 Wampanoag Trail,  ,8315
+45,69,Priscilla,Mariosci,2092489151,67 Pine Crest Drive,  ,3792
+45,69,Benjamin,Marrero,2096026152,59 Sumner Avenue,  ,855
+45,69,Jonathan,Martinez,2092799153,24 Old Carriage Road,  ,2699
+45,69,Simone,Masdai,2097519154,841 Charles Street,  ,3695
+45,69,Jean,Mazile,2097817155,104 York Avenue,  ,1878
+45,69,Yoan ,McDonald,2091043156,60 King Street,  ,6889
+45,69,Cathrine,McLeod,2096027157,7 Nelson Street,  ,863
+45,69,Mary,McShane,2092959158,131 Smith Street,  ,4536
+45,69,Fatima,Medeiros,2096436159,211 High Street,  ,8301
+45,69,Diane,Miller,2098957160,78 Freeborn Avenue,  ,5542
+45,69,Cleo,Mitchell,2097132161,747 Main Street,  ,7675
+45,69,Paul,Monteiro,2090599162,28  Custer Street,  ,3879
+45,69,Nora,Moraquin,2090909163,65 Hillcrest Avenue,  ,8698
+45,69,Virgina,Murgo,2091356164,357 Old Fall River Road,  ,656
+45,69,Yanith ,Noriega,2091014165,153  East Street,  ,3555
+45,69,David,Olsen,2094096166,45 Cedarcrest Drive,  ,1329
+45,69,Michael ,Padula,2096782167,130 Dorr Avenue,  ,7894
+45,69,Roberto,Parades,2090668168,50 Lincoln Avenue,  ,832
+45,69,Kimberly ,Pascale,2094058169,70 Brayton Avenue,  ,6136
+45,69,Angel ,Perez,2093218170,51 South Union Street ,  ,1344
+45,69,Domingo ,Polanco,2092095171,1725 Chalkstone Avenue,  ,8191
+45,69,Christine,Pompei,2097731172,83 Read Street,  ,6413
+45,69,Michael ,Poole,2096706173,15 Hamlet Ct,  ,2947
+45,69,Patria,Ramirez,2097719174,72 Metcalf Street,  ,5301
+45,69,Crisolide,Rodrigues,2098397175,24 Old Carriage Road,  ,4187
+45,69,Gracia,Rodriguez,2093545176,17 Searle Street,  ,2241
+45,69,Miguel,Rodriguez,2097101177,94 Babcock Street,  ,2392
+45,69,Alexander,Rosales,2090672178,83 Capital Street,  ,5615
+45,69,Patricia,Ruckert,2094326179,PO Box 152,  ,6094
+45,69,Jeffrey,Sampson,2092812180,3 Shepard Street,  ,3115
+45,69,Joseph ,Scanlon,2097091181,41 Catalpa Avenue,  ,8159
+45,69,Christine,Shackleton,2092953182,18 Langdon Avenue,  ,8023
+45,69,Susan,Silvestre,2097801183,77 Huxley Avenue,  ,3912
+45,69,Brittany,Smith,2091425184,64 Stowe Avenue,  ,7474
+45,69,Marjorie,Smith,2094745185,60 Blanding Avenue,  ,2384
+45,69,Helena ,Sousa,2098423186,75 Orchard Street,  ,6367
+45,69,Elizabeth,St. Angelo,2096987187,4 Wright Place,  ,4688
+45,69,Teisha,St. John,2092779188,21  Lindy Avenue,  ,4263
+45,69,Barbara,Thomas,2097791189,109 Summit Street,  ,631
+45,69,Roxanne,Torres-Rodriguez,2099699190,106 James Street,  ,2724
+45,69,Robin ,Trotman,2092704191,126 Tollgate Road,  ,8796
+45,69,Laudley,Urena,2099990192,125 Knight Street,  ,264
+45,69,Edin,Vasquez,2094268193,23 Grover Street,  ,2867
+45,69,Thomas,Veneziano,2093982194,55 Circuit Drive,  ,6591
+45,69,Cynthia,Vieth,2094718195,8 Steere Avenue,  ,5935
+45,69,Calvin,Watts,2094621196,101 Ruth Avenue,  ,5307
+45,69,Thomas ,Whalen,2094217197,86 South Street,  ,9948
+45,69,William ,Allison,2093660198,30 Argyle Avenue,  ,6023
+45,69,Christina ,Almanzar,2090609199,157 Linwood Avenue,  ,5812
+45,69,Monserrate,Andrade,2098665200,15 Norton Street,  ,6679
+45,69,Osvaldina,Andrade,2093431201,95 Coyle Avenue,  ,5874
+45,69,Ciara ,Astacio,2093931202,5 Burnside Street,  ,3605
+45,69,Lissette,Bonilla,2097597203,726 River Avenue,  ,3194
+45,69,Maria,Botelho,2097087204,9 Seabrook Drive,  ,5005
+45,69,Gerda ,Brice,2091231205,54 Home Avenue,  ,1567
+45,69,Marlene,Cabrera,2096067206,215 Gallatin Street,  ,586
+45,69,Ann,Canavan,2093972207,79 Sixth Street,  ,2875
+45,69,Jane,Carson,2094556208,245 Manton Street,  ,2267
+45,69,Nancy,Casavant,2093082209,132 Dorr Avenue,  ,8855
+45,69,Isis,Cepeda,2096718210,150 Gailatin Street,  ,3654
+45,69,Maureen,Clark,2096603211,1945 Village Green South,  ,8526
+45,69,Dolores,Conway,2093862212,1014 County Road,  ,4801
+45,69,Idalina,Corbin,2099464213,9 Case Street,  ,8669
+45,69,Alari,Couchon,2097379214,208 Milton Road,  ,2213
+45,69,Cinthya ,Munoz Cruz,2093542215,20 Park Avenue,  ,2755
+45,69,Yaniry ,De Los Santos,2096247216,19 Farragut Avenue,  ,7373
+45,69,Stephanie,Diaz,2099110217,33 Wood Street,  ,9658
+45,69,Ana ,Duran,2090396218,826 Broad Street,  ,294
+45,69,Maria ,Estevez,2094953219,94 Cass Street,  ,7807
+45,69,Ledy,Fajardo,2097306220,122 Gallatin Street,  ,7254
+45,69,Yves,Fils,2091296221,133 Pontiac Avenue,  ,9129
+45,69,Susana ,Frias,2095271222,327 Point Street,  ,3399
+45,69,Russell ,Frye,2090668223,331 Brown Street,  ,6386
+45,69,Isaura,Garrido,2097536224,29 Rutland Street,  ,4375
+45,69,Arthur,Gaskell Jr.,2092604225,245 Manton Street,  ,5441
+45,69,Alan,Godfrey,2097970226,75 Atwood Street,  ,2563
+45,69,Debora,Gomes,2097522227,43 Bullocks Point,  ,8066
+45,69,Melissa De Viloria,Gomez,2095814228,1225 Eddy Street,  ,7438
+45,69,Yazmin ,Gomez,2092419229,369 Sayles Street,  ,2331
+45,69,Nyasia ,Hardia,2093200230,6 Cherry Street,  ,9587
+45,69,Maressa ,Hill,2093469231,15 Maple Avenue,  ,9345
+45,69,Karen,Hyman,2098449232,196 Burgerss Avenue,  ,64
+45,69,Sarah,Kaplan,2092435233,243 Burnside Avenue,  ,4807
+45,69,Michaela,Kurtz,2091566234,3 W Cute Street,  ,1304
+45,69,Carol ,La Fazia,2097208235,6 Fern Drive,  ,8786
+45,69,Cheryl ,Lavallee,2097692236,319 Grovernor Avenue,  ,8338
+45,69,Michelle,Lemos,2092769237,55 N Prospect Street,  ,8247
+45,69,Leah Bee,Lewis,2096882238,100 Humbert Street,  ,7967
+45,69,Jonathan ,Rivera Llanos,2090941239,10 George Street,  ,5204
+45,69,Diane, Lombardo,2093158240,12 Roffee Street,  ,1518
+45,69,Federica,Lopes,2094885241,47 Evergreen Street,  ,9891
+45,69,Jocelin,Marte,2090100242,10 Armsterdam Street,  ,3894
+45,69,Glennys ,Martinez,2098742243,129 Wilson Street,  ,6928
+45,69,Deborah,Martins,2099121244,61 Ivy Street,  ,3868
+45,69,Kelly,Martins,2093527245,26 Donnelly Street,  ,3634
+45,69,Elaine,Mathers,2092025246,44 Cove Street,  ,6317
+45,69,Virginia,Mauricio,2093175247,25 Russell Avenue,  ,106
+45,69,Rosemyne ,Mazile,2091652248,104 York Avenue,  ,4491
+45,69,Marlene,Mello,2090339249,25 Park Square Avenue,  ,3643
+45,69,Eric,Miller,2093704250,40 Reynolds Street,  ,2665
+45,69,Juan ,Mentor Mojica,2097075251,15 Atlantic Avenue,  ,842
+45,69,Christine ,Montgomery,2093630252,70 Niimitz Road,  ,7265
+45,69,Judith,Norcini,2094770253,110 Rice Avenue,  ,1441
+45,69,Jharilyn,Pena Reyes,2097663254,190 Bellevue Avenue,  ,3279
+45,69,Arlette ,Reyes,2095038255,69 Moore Street,  ,5599
+45,69,Luz ,Rivera ,2094335256,12 Cambridge Street,  ,1033
+45,69,Darrell,Robbins,2097434257,125 Mauran Avenue,  ,3537
+45,69,Aliyahna,Rodriguez,2091620258,21 Parkis Avenue,  ,2714
+45,69,Caridad,Rodriguez,2099141259,21 Parkis Avenue,  ,3823
+45,69,Evelyn,Rodriguez,2095206260,488 Public Street,  ,6686
+45,69,Maura ,Santos Rosel,2091238261,151 Parade Street,  ,3152
+45,69,Patricia,Ryan,2095479262,65 East Street,  ,7624
+45,69,Mary ,Cepeda Santana,2094781263,33 Warrington Street,  ,1078
+45,69,Carmen,Santos,2095931264,475 Prairie Avenue,  ,7688
+45,69,Henry,Sirignano,2090460265,29 Ide Avenue,  ,2907
+45,69,Leandra,Smith,2098836266,117 Dodge Street,  ,8156
+45,69,Lauris,Soto,2094391267,192 Sackett Street,  ,6749
+45,69,Nancy,Sylvia,2096970268,28 Belomont Avenue,  ,2712
+45,69,Reyna De Garden,Tavarez,2091592269,373 Potters Avenue,  ,9518
+45,69,Anthony,Teixeira,2096497270,PO Box 14612,  ,9956
+45,69,Sarah,Tejeda,2098199271,5 Burnside Street,  ,5656
+45,69,Georgia,Thibeault,2097388272,229 Providence Avenue,  ,3511
+45,69,Maria,Torres,2096201273,81 Georgia Avenue,  ,6346
+45,69,Genesis,Vargas,2090228274,108 B Harriet Street,  ,3957
+45,69,Jean,Vincent,2091185275,72 Larch Street,  ,4551
+45,69,Kristine,Williams,2092084276,75 Appian Way,  ,1775
+45,69,Sherri,Williams,2099398277,69 Roma Street,  ,5828
+45,69,Mary ,Woodcock,2092536278,8 Rogers Avenue,  ,5268
+45,69,Sandra ,DaCosta,2093095279,60 Charity Street,  ,9712
+45,69,Paul ,Pliakas,2091711280,15 Bedford Road,  ,9656
+45,69,Patricia,Carlone,2091777281,16 Zephyr Lane,  ,9146
+45,69,Ana,Alix,2095528801,100 Russo Street,  ,3231
+45,69,Walter,Barr,2090740802,25 Garfield Avenue,  ,9183
+45,69,Alfonso,Cambio,2097148803,47 Morgan Avenue,  ,4362
+45,69,Anita,Castonguay,2093198804,28 Gemini Drive,  ,2552
+45,69,Mark,DeBritto,2096901805,10 Dover Street,  ,9553
+45,69,Carlos,Deleon,2091471806,135 Verndale Avenue,  ,5008
+45,69,Madeeline,Dieujuste Derose,2093304807,211 Carleton Street,  ,365
+45,69,Maria,Diaz,2097677808,155 Linwood Avenue,  ,95
+45,69,Arthur,Gaskell,2097047809,245 Manton Street,  ,7073
+45,69,Christopher,Grijalva,2096031810,136 Pond Street,  ,1666
+45,69,Maressa,Hill,2092640811,15 Maple Avenue,  ,3002
+45,69,Maurice,Johnson,2095333812,14 Mink Street,  ,4155
+45,69,Cassie,Kent,2098242813,11 Davis Court,  ,9531
+45,69,Nora,Marroquin,2094095814,65 Hillcrest Avenue,  ,6052
+45,69,Jean,Mazile,2091246815,104 York Avenue,  ,9438
+45,69,Angel,Melendez,2099037816,7 Beacon Park Drive,  ,1209
+45,69,Carl ,Mello,2092667817,34 Ingram Street,  ,4881
+45,69,Nathan,Noel,2097443818,237 Hartford Avenue,  ,6733
+45,69,Alberto,Ortiz Cruz,2095481819,82 Penn Street,  ,2369
+45,69,Elysee,Pamphile,2092859820,937 Smith Street,  ,9538
+45,69,Elizabeh,Pereyra,2097464821,251 Randall Street,  ,1937
+45,69,Kelly,Plouff,2096183822,30 Lincoln Avenue,  ,5011
+45,69,Fior,Rodriguez,2095657823,109 Bridgham Street,  ,7268
+45,69,Rosario,Michelle,2092727824,25 Miner Street,  ,1271
+45,69,Tracey,Shea,2095994825,33 Arthur Avenue,  ,4875
+45,69,Alejandra,Urena,2093324826,60 Bridgham Street,  ,8722
+45,69,Edward,White,2093479827,2799 Pawtucket Avenue,  ,7028
+45,69,Tanyxonairy,Aponte,2095520828,53 Salmon Street,  ,7532
+45,69,Keishla,Aponte,2097607829,54 Gardiner Avenue,  ,3432
+45,69,Jesse,Bradley III,2092349830,50 Scenery Lane,  ,2785
+45,69,Brittany,Cabral,2098902831,9 Russell Avenue,  ,6824
+45,69,Ann,Canavan,2093094832,79 Sixth Street,  ,8219
+45,69,Carola,Castelo,2092293833,5 Calef Street,  ,6169
+45,69,Danilda,Castillo,2096946834,71 Warrington Street,  ,9425
+45,69,Dolores,Conway ,2095953835,1014 County Road,  ,5096
+45,69,Margaret,Correia,2090286836,48 Arthur Street,  ,4171
+45,69,Jerry,Darosa,2093004837,1134 Pawtucket Avenue,  ,142
+45,69,Karissa,Dos Santos,2098023838,27 Darling Street,  ,7946
+45,69,Tahiana,Espinal,2093824839,575 Dyer Avenue,  ,1757
+45,69,Shavon,Freeman,2095658840,4 Shepard Street,  ,4521
+45,69,Naira,Garcia,2098492841,155 Linwood Avenue,  ,297
+45,69,Miguel,Gomes,2091813842,43 Bullocks Point,  ,8057
+45,69,Francisco,Gonzalez,2090731843,28 Jillson Street,  ,9126
+45,69,Rosa,Hernandez,2091682844,6 Whelan Road,  ,5079
+45,69,William,McDonald,2094459845,30 Sachem Road,  ,7918
+45,69,Helena,Melo,2095460846,135 Blanding Avenue,  ,3055
+45,69,Franchesca,Meson Reyes,2094544847,58 Tell Street,  ,8027
+45,69,Indiah,Monteiro,2098629848,17 Hillside Avenue,  ,343
+45,69,Sandra,Morel,2091892849,81 Cumerford Street,  ,9123
+45,69,Wanda,Navarez,2094295850,80 Ashbume Street,  ,389
+45,69,Elide,Pamphile,2097618851,19 Monticello Street,  ,4464
+45,69,Aaron,Parsons,2094812852,54 Gardiner Avenue,  ,6839
+45,69,Patricia,Pennacchia,2099894853,99 Goldsmith Avenue,  ,234
+45,69,Elvira,Perez Grullon,2099264854,36 Grant Avenue,  ,8061
+45,69,Judith,Perry ,2094604855,158 Bentley Street,  ,8125
+45,69,Maribel,Polanco,2096230856,39 Massie Avenue,  ,5891
+45,69,Nataly,Rosarion,2097450857,118 Gordon Avenue,  ,6331
+45,69,Yadira,Soler,2094900858,99 Goldsmith Avenue,  ,3576
+45,69,Ana,Urena,2092632859,60 Bridgham Street,  ,8238
+45,69,Judith,Vargas,2092487860,34 Vanderland Avenue,  ,2056
