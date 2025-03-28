@@ -119,7 +119,7 @@ def job_change(request, job_id):
             logging.debug("")
 
             directory = "/home/merriman/django_apps/bulkimport/"
-            the_pid = subprocess.Popen(["/usr/bin/python2.7", "import.py", str(f.id)],
+            the_pid = subprocess.Popen(["/usr/bin/python3", "import.py", str(f.id)],
                                        cwd=directory).pid
             
             return redirect('bulkimport_job_change', job_id=job_id)
@@ -475,7 +475,7 @@ def template_new_import(request, template_id):
                 """
 
                 logging.debug("")
-                logging.debug("Form is a POST and is Valid (Line 479). We are calling the threaded import.py file.")
+                logging.debug("Form is a POST and is Valid (Line 478). We are calling the threaded import.py file.")
                 logging.debug("")
 
                 directory = "/home/merriman/django_apps/bulkimport/"

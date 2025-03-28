@@ -1,1 +1,1 @@
-You seem to be having trouble, please call 877-324-7655 or email support@alohavote.com for assistance.
+You seem to be having trouble, please call {{ default_phone }} or email {{ default_email }} for assistance.

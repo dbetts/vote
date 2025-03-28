@@ -1,17 +1,20 @@
 {% extends "secondary_site.html" %}
 
+{% load election_tags %}
+
 {% block title %}Validate your identity{% endblock %}
 
 {% block content %}
 
 <h2>{{ election.name }}</h2>
 
-<p>Before we create your secret ballot, we need to verify your identity:</p>
+<p>Before we create your <!--secret-->ballot, we need to verify your identity.</p>
 
 <form method="POST" action=".">
+    {% csrf_token %}
     {{ form.value.errors }}
     <label>
-        {{ validation_text }} {{ validate_against }}
+        {{ validation_text|safe }} {{ validate_against|safe }}
     </label>
     {{ form.value }}<br>
     <input type="submit" value="Validate my identity"/>
@@ -21,9 +24,7 @@
     <tr>
         <td bgcolor="#FFFFCC">
             <blockquote>
-                <h3>Don't recognize your number on file?</h3>
-                <p>If you don't recognize your number, please call {{ default_phone }} and leave a message. Your call
-                    will be returned promptly.</p>
+                <h3>If you are unsure what to enter, please call 877-324-7655 and leave a message. Your call will be returned promptly.</p>
             </blockquote>
         </td>
     </tr>

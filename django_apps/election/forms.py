@@ -1,13 +1,13 @@
 from itertools import chain
-from django.forms.util import flatatt
+from django.forms.utils import flatatt
 import ast
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
-from django.utils.encoding import force_unicode, StrAndUnicode
+from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.utils.html import conditional_escape
-from django.forms.util import ErrorList
+from django.forms.utils import ErrorList
 
 from django.conf import settings
 from django_apps.election.models import Election, Asset
@@ -16,6 +16,16 @@ try:
     import json
 except ImportError:
     import simplejson as json
+
+try:
+    from django.utils.encoding import StrAndUnicode
+except ImportError:
+    from django.utils.encoding import python_2_unicode_compatible
+
+    @python_2_unicode_compatible
+    class StrAndUnicode(object):
+        def __str__(self):
+            return self.__unicode__()
 
 import logging
 
@@ -50,10 +60,12 @@ class CheckboxSelectMultipleCustom(forms.SelectMultiple):
         if value is None: value = []
             
         has_id = attrs and 'id' in attrs
-        final_attrs = self.build_attrs(attrs, name=name)
+        attrs.update({u'name': name})
+        final_attrs = self.build_attrs(attrs)
+
         output = [u'<ul>']
         # Normalize to strings
-        str_values = set([force_unicode(v) for v in value])
+        str_values = set([force_text(v) for v in value])
 
         for i, (option_value, option_label) in enumerate(chain(self.choices, choices)):
             # If an ID attribute was given, add a numeric index as a suffix,
@@ -64,23 +76,24 @@ class CheckboxSelectMultipleCustom(forms.SelectMultiple):
             else:
                 label_for = ''
 
-            if option_label == 999:              
+            if option_label == 999:
                 
                 cb = forms.CheckboxInput(final_attrs, check_test=lambda value: value in str_values)
-                option_value = force_unicode(option_value)
+                option_value = force_text(option_value)
                 rendered_cb = cb.render(name, option_value)
 
                 post_key = final_attrs['name'] + '_write_in'
                 post_id = final_attrs['name']
                 final_attrs['id'] = post_key
                 final_attrs['name'] = post_key
-                
+                field_value = None
+
                 try:
                     field_value = self.ballot_json[post_key]
                 except:
                     try:
                         for k, val in enumerate(self.ballot_json[post_id]['answer']):
-                            if (option_value == val):
+                            if option_value == val:
                                 field_value = self.ballot_json[post_id]['answer_eng'][k]
                     except:                        
                         try:
@@ -90,15 +103,15 @@ class CheckboxSelectMultipleCustom(forms.SelectMultiple):
    
                 inp = forms.TextInput(final_attrs)
                 #try:
-                rendered_inp = inp.render(name, field_value, final_attrs)
+                rendered_inp = inp.render(final_attrs['name'], field_value, final_attrs)
                 #except:
                 #    rendered_inp = inp.render(name, '', final_attrs)
                 output.append(u'<li><div style="display:block; font-size:14px;">%s %s</div></li>' % (rendered_cb, rendered_inp))
             else:
                 cb = forms.CheckboxInput(final_attrs, check_test=lambda value: value in str_values)
-                option_value = force_unicode(option_value)
+                option_value = force_text(option_value)
                 rendered_cb = cb.render(name, option_value)
-                option_label = conditional_escape(force_unicode(option_label))
+                option_label = conditional_escape(force_text(option_label))
                 output.append(u'<li><label%s>%s %s</label></li>' % (label_for, rendered_cb, option_label))
         output.append(u'</ul>')
         return mark_safe(u'\n'.join(output))
@@ -120,8 +133,8 @@ class RadioInput(StrAndUnicode):
     def __init__(self, ballot_json, name, value, attrs, choice, index):
         self.name, self.value = name, value
         self.attrs = attrs
-        self.choice_value = force_unicode(choice[0])
-        self.choice_label = force_unicode(choice[1])
+        self.choice_value = force_text(choice[0])
+        self.choice_label = force_text(choice[1])
         self.index = index
         self.ballot_json = ballot_json
 
@@ -130,7 +143,7 @@ class RadioInput(StrAndUnicode):
             label_for = ' for="%s_%s"' % (self.attrs['id'], self.index)
         else:
             label_for = ''
-        choice_label = conditional_escape(force_unicode(self.choice_label))
+        choice_label = conditional_escape(force_text(self.choice_label))
         if choice_label == str(999):
             radio_inp = mark_safe(u'<div style="display:block;font-size:14px;">%s' % (self.tag()))
 
@@ -187,7 +200,7 @@ class RadioFieldRenderer(StrAndUnicode):
             yield RadioInput(self.ballot_json, self.name, self.value, self.attrs.copy(), choice, i)
 
     def __getitem__(self, idx):
-        choice = self.choices[idx] # Let the IndexError propogate
+        choice = self.choices[idx] # Let the IndexError propagate
         return RadioInput(self.ballot_json, self.name, self.value, self.attrs.copy(), choice, idx)
 
     def __unicode__(self):
@@ -196,7 +209,7 @@ class RadioFieldRenderer(StrAndUnicode):
     def render(self):
         """Outputs a <ul> for this set of radio fields."""
         return mark_safe(u'<ul>\n%s\n</ul>' % u'\n'.join([u'<li>%s</li>'
-                                                          % force_unicode(w) for w in self]))
+                                                          % force_text(w) for w in self]))
 
 
 class RadioSelectCustom(forms.Select):
@@ -213,7 +226,7 @@ class RadioSelectCustom(forms.Select):
     def get_renderer(self, name, value, attrs=None, choices=()):
         """Returns an instance of the renderer."""
         if value is None: value = ''
-        str_value = force_unicode(value) # Normalize to string.
+        str_value = force_text(value) # Normalize to string.
         final_attrs = self.build_attrs(attrs)
         choices = list(chain(self.choices, choices))
         return self.renderer(self.ballot_json, name, str_value, final_attrs, choices)
@@ -236,6 +249,8 @@ class PINForm(forms.Form):
     pin = forms.CharField(max_length=20, label=_("Please enter your ballot PIN"))
 
     def __init__(self, request, *args, **kwargs):
+        self.pin = request.session.get('pin')
+        self.election = None
         self.request = request
         super(PINForm, self).__init__(*args, **kwargs)
         try:
@@ -249,9 +264,10 @@ class PINForm(forms.Form):
         if self.cleaned_data['pin']:
             try:
                 pin = PIN.objects.get(pin=self.cleaned_data['pin'])
+                self.pin = pin
                 self.election = pin.election
             except PIN.DoesNotExist:
-                raise forms.ValidationError(mark_safe("It doesn't appear that \
+                raise forms.ValidationError(mark_safe(u"It doesn't appear that \
                 this is a valid PIN. If you feel you have reached this point \
                 in error please contact us at "+self.default_phone))
             
@@ -261,8 +277,8 @@ class PINForm(forms.Form):
                 pass
             else:
                 logging.debug("Duplicate vote request inside of form--denied creating ballot for %s" % (self.cleaned_data['pin']))
-                raise forms.ValidationError('PIN %s has already voted \
-                    in this election - ' % (self.cleaned_data['pin']))
+                raise forms.ValidationError(u"PIN %s has already voted \
+                    in this election - " % (self.cleaned_data['pin']))
             
             try:
                 result = Mail_Log.objects.get(pin=pin.pin)
@@ -270,8 +286,8 @@ class PINForm(forms.Form):
                 pass
             else:
                 logging.debug("Duplicate vote request inside of form from mail ballots--denied creating ballot for %s" % (self.cleaned_data['pin']))
-                raise forms.ValidationError('PIN %s has already voted \
-                    in this election or your mail ballot has been processed.' % (self.cleaned_data['pin']))
+                raise forms.ValidationError(u"PIN %s has already voted \
+                    in this election or your mail ballot has been processed." % (self.cleaned_data['pin']))
 
             return self.cleaned_data['pin']
 
@@ -281,7 +297,7 @@ class ValidateForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         
-        if kwargs.has_key('answer'):
+        if 'answer' in kwargs:
             self._answer = kwargs['answer']
             del(kwargs['answer'])
 
@@ -307,6 +323,10 @@ class BallotForm(forms.Form):
     """
 
     def __init__(self, *args, **kwargs):
+
+        self.pin = kwargs.pop('ballot_pin')
+        self.posted = dict(*args)
+
         self.ballot = kwargs.pop('ballot')
         self.ballot_json = kwargs.pop('ballot_jn') # ballot_json["initial"][question_id]["answer_eng"]
         if not self.ballot_json:
@@ -316,6 +336,8 @@ class BallotForm(forms.Form):
                 self.ballot_json = self.ballot_json
         
         super(BallotForm, self).__init__(*args, **kwargs)
+
+        self.hasErrors = False
         
         self.questions = Question.objects.filter(ballot=self.ballot).order_by('ballot_question__order')
         self.choices = Choice.objects.select_related().filter(question__election=self.ballot.election)
@@ -331,11 +353,12 @@ class BallotForm(forms.Form):
         
         for c in self.choices:
             self.choices_reverse[str(c.id)] = c
-                
+
         for q in self.questions:
+
             opts = {}
             
-            if q.max_responses == 1 or q.min_responses == 0:
+            if q.max_responses == 1: # or q.min_responses == 0:
                 opts['label'] = '%s (Choose %d)' % (q.question, q.max_responses)
             else:
                 opts['label'] = '%s (Choose up to %d)' % (q.question, q.max_responses)
@@ -384,18 +407,22 @@ class BallotForm(forms.Form):
         the required number of answers.
         """
         for q in self.questions:
+
             data = self.cleaned_data.get(str(q.id), False)
-            
+
             if q.min_responses > 0 and not data:
                 self._errors[str(q.id)] = self.error_class(["You must select an option to continue"])
+                self.hasErrors = True
 
             if q.min_responses == 0 and q.max_responses == 1 and not data:
                 self._errors[str(q.id)] = self.error_class(["You must select an option to continue"])
+                self.hasErrors = True
             
             if data and q.max_responses > 1:
                 question_value = self.cleaned_data[str(q.id)]
                 if len(question_value) > q.max_responses:
                     self._errors[str(q.id)] = ErrorList(['You may only select at most %d choices' % q.max_responses])
+                    self.hasErrors = True
         return self.cleaned_data
     
     def save(self, commit=True):
@@ -409,10 +436,13 @@ class BallotForm(forms.Form):
         choices = {}
         for q in self.questions:
             answer_eng = []
+
+            # response is either a stringed integer or a list/tuple
             response = self.cleaned_data[str(q.id)]
             
-            if hasattr(response, '__iter__'):
-                for a in self.cleaned_data[str(q.id)]:
+            # if hasattr(response, '__iter__'):
+            if type(response) is list or type(response) is tuple:
+                for a in response:
                     if self.choices_reverse[a].answer == 999:
                         post_key = str(q.id) + '_write_in'
                         try:
@@ -442,10 +472,18 @@ class BallotForm(forms.Form):
         if commit:
             newValue = self.ballot_json.copy()
             logging.debug(newValue)
-            
-            return Vote.objects.create(election=self.ballot.election, 
-                    ballot=self.ballot, 
-                    choices=json.dumps(choices))
+
+            # if self.ballot.election.enable_cast_vote_record == 1:
+            if self.ballot.election.logic_and_accuracy == 1:
+                return Vote.objects.create(election=self.ballot.election,
+                                            ballot=self.ballot,
+                                            choices=json.dumps(choices),
+                                            pin=self.pin)
+            else:
+                return Vote.objects.create(election=self.ballot.election,
+                                            ballot=self.ballot,
+                                            choices=json.dumps(choices))
+
         else:
             return choices
 

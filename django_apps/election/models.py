@@ -14,8 +14,8 @@ class PIN(models.Model):
     address = models.CharField(max_length=200, blank=True, null=True)
     validation_start = models.CharField(max_length=20, blank=True, null=True)
     validation_number = models.CharField(max_length=20, blank=True, null=True)
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s" % self.pin
         
     class Meta:
@@ -26,20 +26,29 @@ class Invalid_Response(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     identification = models.CharField(max_length=100)
     digits = models.CharField(max_length=100)
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s - %s" % (self.identification, self.created_at)
 
    
 def election_file_location(instance, filename):
     return "audio/%d/%s" % (instance.id, filename)
 
+def image_file_location(instance, filename):
+    folder = datetime.datetime.strftime(instance.election.create_date, "%B_%Y")
+    return "%s/%d/%s" % (folder, instance.election.id, filename)
+
+
 class Election(models.Model):
-    name    = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     create_date = models.DateTimeField(auto_now_add=True)
-        
+
+    # enable_cast_vote_record = models.BooleanField()
+    logic_and_accuracy = models.BooleanField()
+    live_election = models.BooleanField()
+
     audio_start = models.FileField(upload_to=election_file_location, 
                         blank=True, 
                         null=True)
@@ -93,14 +102,14 @@ class Election(models.Model):
                         blank=True,
                         null=True,
                         help_text="We're sorry, it looks like are having trouble entering your PIN")
-                    
-    def __unicode__(self):
+
+    def __str__(self): # was changed from __unicade__() to __str__()
         return self.name
     
     def active(self):
         now = datetime.datetime.today()
         
-        if now > self.start_time and now < self.end_time: 
+        if (not self.start_time or now > self.start_time) and (not self.end_time or now < self.end_time):
             return True
         
         return False
@@ -123,13 +132,14 @@ class Election(models.Model):
     @property
     def web_vote_count(self):
         return self.vote_set.filter(phone=False).count()
-    
+
+
 class Log(models.Model):
     election    = models.ForeignKey(Election)
     pin         = models.ForeignKey(PIN) #models.IntegerField() #ForeignKey(PIN)
     time        = models.DateTimeField(auto_now_add=True)
-        
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s" % self.pin
     
     def save(self, *args, **kwargs):
@@ -158,8 +168,8 @@ class Mail_Log(models.Model):
     
     class Meta:
         verbose_name = 'Mail Ballot Log'
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s" % self.pin
     
     def save(self, *args, **kwargs):
@@ -189,8 +199,8 @@ class Ballot(models.Model):
     name = models.CharField(max_length=100)
     questions = models.ManyToManyField('Question', through='Ballot_Question')
     audio = models.FileField(upload_to=ballot_file_location, blank=True, null=True)
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return self.name
 
 
@@ -207,8 +217,8 @@ class Question(models.Model):
         blank=True,
         related_name='question_choices')
     audio = models.FileField(upload_to=question_file_location, blank=True, null=True)
-    
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return self.question
 
 
@@ -225,8 +235,8 @@ class Choice(models.Model):
     
     class Meta:
         ordering = ('order',)
-       
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return "%s (%s)" % (self.answer, self.question)
 
 
@@ -239,8 +249,8 @@ class Ballot_Question(models.Model):
         ordering = ('order',)
         verbose_name = 'Ballot Question'
         verbose_name_plural = 'Ballot Questions'
-        
-    def __unicode__(self):
+
+    def __str__(self):  # def __unicode__(self):
         return self.question.question
 
            
@@ -251,8 +261,9 @@ class Vote(models.Model):
     ballot          = models.ForeignKey(Ballot)
     choices         = models.TextField()
     phone           = models.BooleanField(default=False)
-        
-    def __unicode__(self):
+    pin             = models.CharField(max_length=20, blank=True, null=True)
+
+    def __str__(self):  # def __unicode__(self):
         return "%s" % self.confirmation
         
     def save(self, *args, **kwargs):
@@ -290,19 +301,18 @@ class Phone_Choice(models.Model):
     choice      = models.ForeignKey(Choice)
 
 
-def image_file_location(instance, filename):
-    folder = datetime.datetime.strftime(instance.election.create_date, "%B_%Y")
-    return "%s/%d/%s" % (folder, instance.election.id, filename)
-
 class Asset(models.Model):
     election        = models.OneToOneField(Election)
     sub_domain      = models.CharField(max_length=64, editable=True)
     default_phone   = models.CharField(max_length=16, editable=True)
     default_email   = models.CharField(max_length=64, editable=True)
+    vote_phone      = models.CharField(max_length=16, editable=True, blank=True, null=True)
     header_image    = models.FileField(upload_to=image_file_location, blank=True, null=True)
     validation_text = models.CharField(max_length=1024, editable=True)
     ballot_extra    = models.TextField(editable=True)
     exit_url        = models.CharField(max_length=1024, editable=True)
 
-    def __unicode__(self):
+    def __str__(self):  # def __unicode__(self):
         return "%s (%s)" % (self.default_phone, self.default_email)
+
+

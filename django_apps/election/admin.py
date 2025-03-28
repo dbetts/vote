@@ -6,42 +6,46 @@ class PINAdmin(admin.ModelAdmin):
     search_fields = ('pin',)
     list_filter = ('election',)
 
-# ('sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'ballot_extra', 'exit_url')
-class AssetInline1(admin.TabularInline):
+
+class AssetInline(admin.StackedInline):
     model = Asset
-    extra = 1
-    class Media:
-        css = {
-            'all': ('css/custom_admin.css',)
-        }
+    verbose_name_plural = 'Election Assets'
+    can_delete = False
+    show_change_link = True
+    classes = ('collapse',)
+    ### Asset has 'election = models.OneToOneField(Election)', so extra and max_num are irrelevant.
+    # extra = 6
+    # max_num = 10
 
-#class AssetInline2(admin.TabularInline):
-#    model = Asset
-#    extra = 1
-#    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'ballot_extra',)
+    # fields = ['sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'ballot_extra', 'exit_url']
 
-#class AssetInline3(admin.TabularInline):
-#    model = Asset
-#    extra = 1
-#    exclude = ('sub_domain', 'default_phone', 'default_email', 'header_image', 'validation_text', 'exit_url')
+    # class Media:
+    #     css = {
+    #         'all': ('css/custom_admin.css',)
+    #     }
 
 class ElectionAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,              {'fields': ((), ('name', 'start_time', 'end_time',
-                                             'active_election'
+                                             # 'active_election', DSB disabled this for show. May need to be re-enabled.
+                                             'live_election', # The live_election field literally does nothing. It is for show only.
+                                             'logic_and_accuracy'
+                                             # 'enable_cast_vote_record' DSB The DB field was renamed and then renamed here as well.
                                              ))}),
         ('Audio Files',     {'fields': ['audio_start','audio_end','audio_finished','audio_repeat',
                                         'audio_invalid_response','audio_error','audio_if_done',
                                         'audio_privacy','audio_pin','audio_already_voted','audio_if_banned'], 'classes': ['collapse']}),
     ]
+
     readonly_fields = ('active_election',)
+
     inlines = [
-        AssetInline1,
+        AssetInline,
     ]
 
 class QuestionInline(admin.TabularInline):
     model = Ballot_Question
-    extra = 1
+    extra = 0
         
 class BallotAdmin(admin.ModelAdmin):
     list_display = ('name', 'election')
@@ -68,7 +72,7 @@ class VoteAdmin(admin.ModelAdmin):
         
 admin.site.register(PIN, PINAdmin)
 admin.site.register(Election, ElectionAdmin)
-# admin.site.register(Asset, AssetAdmin)
+# admin.site.register(Asset, AssetInline)
 admin.site.register(Log, LogAdmin)
 admin.site.register(Mail_Log, MailLogAdmin)
 admin.site.register(Ballot, BallotAdmin)

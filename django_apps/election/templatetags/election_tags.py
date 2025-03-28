@@ -1,7 +1,9 @@
 from django import template
 from django.conf import settings
 from django.template import Variable
-from django.utils.datastructures import SortedDict
+# from django.utils.datastructures import SortedDict
+from collections import OrderedDict as SortedDict
+import re
 
 try:
     import json
@@ -16,7 +18,7 @@ def load_answers(parser, token):
     try:
         tag_name, answers = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "%r tag requires exactly one argument"
+        raise template.TemplateSyntaxError("%r tag requires exactly one argument")
     return AnswersNode(answers)
 
 @register.tag
@@ -25,7 +27,7 @@ def get_question_choices(parser, token):
     try:
         tag_name, question, as_sugar, varname = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "%r tag requires exactly two arguments"
+        raise template.TemplateSyntaxError("%r tag requires exactly two arguments")
     return GetQuestionNode(question, varname)
 
 class AnswersNode(template.Node):
@@ -56,9 +58,17 @@ class GetQuestionNode(template.Node):
 def percentage(fraction, population):
     try:
         return "%3.2f%%" % ((float(fraction) / float(population)) * 100)
-    except ValueError:
+    except (ValueError, ZeroDivisionError):
         return ''
 
+@register.filter(name='phone_number')
+def phone_number(number):
+    clean_phone = re.sub(r'[^\d]+', '', number)
+
+    first = clean_phone[0:3]
+    second = clean_phone[3:6]
+    third = clean_phone[6:10]
+    return '(' + first + ')' + ' ' + second + '-' + third
 
 @register.filter
 def hash(h, k):
@@ -75,7 +85,7 @@ def votes_for_question(parser, token):
     try:
         tag_name, question, in_sugar, votes, as_sugar, varname = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError, "%r tag requires exactly two arguments"
+        raise template.TemplateSyntaxError("%r tag requires exactly two arguments")
     return VotesForQuestion(question, votes, varname)
 
 class VotesForQuestion(template.Node):
@@ -95,7 +105,7 @@ class VotesForQuestion(template.Node):
             answers = json.loads(v.choices)
             
             for a_id, a in answers.items():
-                if not votes_by_questions.has_key(a_id):
+                if not a_id in votes_by_questions:
                     votes_by_questions[a_id] = []
                     
                 votes_by_questions[a_id].append(a['answer'])
@@ -149,8 +159,9 @@ def admin_reorder(context, token):
         of apps/models defined by settings.ADMIN_REORDER
     """
     # sort key function - use index of item in order if exists, otherwise item
-    sort = lambda order, item: (order.index(item), "") if item in order else (
+    sort = lambda order, item: (list(order).index(item), "") if item in order else (
         len(order), item)
+
     if "app_list" in context:
         # sort the app list
         order = SortedDict(settings.ADMIN_REORDER)

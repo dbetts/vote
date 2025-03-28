@@ -88,12 +88,10 @@ def main(job_id):
     for key, value in mapping_through.items():
         related_models[key] = 'election_' + key
 
-    with open('/home/merriman/merrimanriver.com/source/media/' + original['data'], 'rU', encoding='utf-16') as file:
+    # , encoding='utf-16'
+    with open('/home/merriman/merrimanriver.com/source/media/' + original['data'], 'r') as file:
         read_file = file.readlines()
-
     csv_count = len(read_file)
-
-    logging.debug("The len of the file is: " + str(csv_count))
 
     lines = csv.reader(read_file)
 
@@ -121,6 +119,7 @@ def main(job_id):
                         if not val or val == '':
                             logging.debug("Missing %ss required value", k)
                             do_not_add = True
+                            print("Set Do_Not_Add to True on line 124")
                             try:
                                 sql_string = """INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)"""
                                 cur.execute(sql_string, (job_id, json.dumps(line), "Missing required field"))
@@ -138,12 +137,23 @@ def main(job_id):
                             c = cur.rowcount
 
                         except Exception as e:
-                            do_not_add = True
-                            logging.debug("Error fetching unique count: %s" % (e,))
-                            break
+                            # This could have failed because the unique field is a foreign key, meaning it needs a '_id' appended to the name.
+                            # So, we try again with a new field name.
+                            try:
+                                field = str(k) + '_id'
+                                sql_string = """SELECT id FROM """ + insert_table + """ WHERE %s = '%s'""" % (field, val)
+                                cur.execute(sql_string)
+                                c = cur.rowcount
+
+                            except Exception as e:
+                                do_not_add = True
+                                print("Set Do_Not_Add to True on line 152")
+                                logging.debug("Error fetching unique count: %s" % (e,))
+                                break
 
                         if c > 0:
                             do_not_add = True
+                            print("Set Do_Not_Add to True on line 149")
                             try:
                                 cur.execute("""INSERT INTO bulkimport_error (job_id, data, message) VALUES (%s, %s, %s)""", (job_id, json.dumps(line), "Duplicate value for unique field"))
                                 db.commit()
@@ -169,20 +179,25 @@ def main(job_id):
                         if k in related_models:
                             # FK field
                             # Get the record from the DB that this input has a foreign key to.
-                            sql_string = """SELECT COUNT(*) as count FROM """ + related_models[k] + """ WHERE %s = %s""" % (relation, val)
+                            if relation == 'id':
+                                sql_string = """SELECT COUNT(*) as count FROM """ + related_models[k] + """ WHERE %s = %s""" % (relation, val)
+                            else:
+                                sql_string = """SELECT COUNT(*) as count FROM """ + related_models[k] + """ WHERE %s = '%s'""" % (relation, val)
+
                             cur.execute(sql_string)
                             result = cursor_fetch(cur)
 
                             if result['count'] > 0:
                                 # build the foreign key column name by adding the '_id' to the column
-                                if relation == 'id':
-                                    args[str(k)+'_'+relation] = val
+                                if relation == 'id' or relation == 'pin':
+                                    args[str(k)+'_id'] = val
                                 else:
                                     args[str(k)] = val
 
                             else:
                                 if required and k in required:
                                     do_not_add = True
+                                    print("Set Do_Not_Add to True on line 204")
                                     try:
                                         msg = "A required %s object was not found by %s='%s'" % (k, relation, val)
                                         cur.execute(
@@ -219,7 +234,6 @@ def main(job_id):
                     try:
                         sql_string = """INSERT INTO """+insert_table+""" ("""+col_string+""") VALUES ("""+val_string+""")"""
                         cur.execute(sql_string, value_list)
-
                         db.commit()
                         inserted = cur.lastrowid
 
@@ -253,6 +267,12 @@ def main(job_id):
                     #     message = "Couldn't add row (%s)" % e
                     #     cur.execute("""INSERT INTO bulkimport_error (job_id, data, message, extra) VALUES (%s, %s, %s, %s)""", (job_id, json.dumps(line), message, arg_json))
                     #     db.commit()
+
+            else:
+                if do_not_add:
+                    print("Do Not Add is True")
+                else:
+                    print("Do Not Add is False")
 
         except ContinueOuterLoop:
             pass

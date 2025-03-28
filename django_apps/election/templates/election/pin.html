@@ -7,6 +7,7 @@
 	
     {% include "election/pin_text.html" %}
 <form name="PIN" action="" method="POST" class="clean_form">
+	{% csrf_token %}
 	<div class="clear margin-t-10px" >
 		<div class="login-pin text-color3 ">
 			<div>{{ form.errors.pin|safe }}</div>

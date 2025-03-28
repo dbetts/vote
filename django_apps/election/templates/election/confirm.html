@@ -5,11 +5,13 @@
 {% block title %}{% trans "Confirmation" %}{% endblock %}
 
 {% block content %}
+
 <h2>{% trans "Confirmation" %}</h2>
 <p>If you wish to verify your vote in the future your confirmation number is:
     <b>{{ vote.confirmation }}</b></p>
 <p><b>You must record this number now!</b> To protect your identity, we will not have a way to look this
     information up in the future.</p>
+
 <hr/>
 <span style="font-size: 16px">
 	<h3>Ballot was recorded as:</h3>
@@ -26,17 +28,33 @@
 	    </ul>
 	{% endfor %}
     <hr/>
+    <!-- Comment out BH for OES IBT 5/24/21 -->
 	<p>If you wish to verify your vote in the future your confirmation number is:
 		<b>{{ vote.confirmation }}</b></p>
 	<p><b>You must record this number now!</b> To protect your identity, we will not have a way to look this
 		information up in the future.</p>
 
 	<p>Do not share your confirmation number.</p>
+	<span style="font-size: 24px">
+	<!--     Comment out BH for OES IBT-->
+	<p><b>To exit the voting page, choose one of the buttons below. DO NOT use back arrows.</b></p>
+	</span>
+	<span style="font-style: italic; font-size: 12px">
+	<p>While it will not impact your vote, pressing the back arrows may create an error message.</p>
+	</span>
     </span>
 <!---->
 <form action="{{ exit_url }}">
-    <input style="font-size:18px;" type="submit" id="mysubmit" value="Finish">
+	{% csrf_token %}
+    <input style="Background-Color: #8EB2C0; font-size:24px;" type="submit" id="mysubmit" value="I'm Finished Voting ">
 </form>
+<p>
+    <!-- Comment out BH for OES IBT 5/24/21	-->
+<form action="https://www.mrgvote.com/verify">
+	{% csrf_token %}
+    <input style="Background-Color: #D2E2E8; font-size:24px;" type="submit" id="mysubmit" value="Confirm My Vote ">
+</form>
+   <!-- Comment out BH for OES IBT-->
 
 <p></p>
 <p></p>
@@ -44,5 +62,5 @@
 <p></p>
 
 <br>
-<span style="font-size: 12px;">(When you click &quot;No Thanks&quot; you will get a popup message that you are leaving our secure site; this is normal and correct.)</span>
+<span style="font-size: 12px;">(When you click you may get a popup message that you are leaving our secure site; this is normal and correct.)</span>
 {% endblock %}

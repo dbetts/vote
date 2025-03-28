@@ -1,19 +1,22 @@
 {% extends "secondary_site.html" %}
 {% load i18n %}
 {% load election_tags %}
-{% block title %}{{ election.name }} {% trans "ballot" %}{% endblock %}
+{% block title %}{{ election.name }} {% trans "Ballot" %}{% endblock %}
 
 {% block content %}
 <h2>{{ election.name }} {% trans "Ballot" %}</h2>
-<h3>Your secret ballot has been created.</h3>
+<h3>Your <!--secret--> ballot has been created.</h3>
 
-<p>Your member record will show that you have voted, but not how you voted.</p>
-<p>Your secret ballot will record your vote, but not your identity.</p>
+<!--
+<p>Your member record will show that you have voted, but not how you voted.<br>
+Your secret ballot will record your vote, but not your identity.</p>
+-->
 
 {{ ballot_extra|safe }}
 
-<form action="{% url election_ballot election.id %}" method="post" class="clean_form">
-	<input type="hidden" name="pin" , value="{{ pin }}">
+<form action="{% url 'election_ballot' election_id=election.id %}" method="post" class="clean_form">
+	{% csrf_token %}
+	<input type="hidden" name="pin" value="{{ pin }}">
 	{% for question in form %}
 	<h3>{{ question.label }}</h3>
 	{{ question.errors }}
@@ -21,7 +24,7 @@
 	{% endfor %}
 
 	<div style="border: 2px solid #ccc; padding: 5px; background-color: #fff799;">
-		<p><input id="ballot-button" type="submit" value="{% trans " Preview Ballot" %}"></p>
+		<p><input id="ballot-button" type="submit" value="{% trans "Continue" %}"></p>
 	</div>
 </form>
 	

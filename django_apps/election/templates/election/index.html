@@ -7,7 +7,8 @@
 
 {% for lang in LANGUAGES %}
 	<div style="width: 100px; float: left;">
-	<form action="{% url django.views.i18n.set_language %}" method="post" name="language_{{ forloop.counter }}">
+	<form action="{% url 'django.views.i18n.set_language' %}" method="post" name="language_{{ forloop.counter }}">
+		{% csrf_token %}
 		<input name="next" type="hidden" value="{% url election_pin %}" />
 		<input name="language" type="hidden" value="{{ lang.0 }}" />
 		<label>
